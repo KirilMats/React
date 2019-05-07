@@ -1,0 +1,117 @@
+.dialogs {
+  display: flex;
+  flex-flow: row nowrap;
+  overflow: hidden;
+}
+
+.message_items {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 80%;
+  align-items: center;
+}
+
+.dialog_items {
+  display: flex;
+  flex-flow: column nowrap;
+  width: 20%;
+  align-items: center;
+  margin-top: 5px;
+  border: 1px solid #C7CBD1;
+}
+
+.search_bar {
+  width: 94%;
+  margin: 10px auto;
+}
+
+.search_bar > input {
+  width: 100%;
+  height: 30px;
+  outline: none;
+  border: 1px solid #C7CBD1;
+  padding: 5px;
+  box-sizing: border-box
+} 
+
+.create_msg {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  width: 95%;
+  padding: 10px 5px;
+  border: 1px solid #C7CBD1;
+}
+
+input.write_msg{
+  font-size: 16px;
+  width: 95%;
+  height: 40px;
+  outline: none;
+  border: 0;
+  padding: 5px 10px;
+  overflow: hidden;
+}
+
+input.send_msg {
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
+  border: 1px solid #C7CBD1;
+  background: none;
+  height: 40px;
+  width: 80px;
+  padding: 10px;
+  transition: 300ms;
+}
+
+input.send_msg:hover {
+  background-color: #C7CBD1;
+  color: #ffffff;
+  transition: 300ms;
+}
+
+@media (max-width: 1024px) {
+  .message_items {
+    width: 70%;
+  }
+  .dialog_items {
+    width: 30%;
+  }
+  .search_bar {
+    margin: 5px auto;
+  }
+  .create_msg {
+    width: 90%;
+  }
+  input.write_msg{
+    font-size: 12px;
+    padding: 2px 4px;
+  }
+  input.send_msg {
+    font-size: 12px;
+    height: 30px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 720px) {
+  input.write_msg{
+    font-size: 12px;
+    padding: 2px 4px;
+  }
+  input.send_msg {
+    font-size: 12px;
+    height: 30px;
+    padding: 0;
+  }
+}
+@media (max-width: 320px) {
+  .message_items {
+    width: 65%;
+  }
+  .dialog_items {
+    width: 35%;
+  }
+}

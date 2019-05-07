@@ -1,0 +1,25 @@
+.post {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.item {
+  margin-top: 20px;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+}
+
+.user_photo {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}
+
+.post_text {
+  margin-left: 20px;
+  color: #000000;
+  font-size: 18px;
+  font-weight: 400;
+}
