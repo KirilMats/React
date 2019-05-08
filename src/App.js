@@ -5,13 +5,14 @@ import Navbar from './components/NavBar/Navbar';
 import Content from './components/Content/Content';
 import { BrowserRouter } from 'react-router-dom';
 
-function App() {
+function App({data}) {
+  
   return (
     <div className="App">
       <BrowserRouter>
         <Header />
         <Navbar />
-        <Content />
+        <Content data={data} />
       </BrowserRouter>
     </div>
   );

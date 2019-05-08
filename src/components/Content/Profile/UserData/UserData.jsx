@@ -1,10 +1,7 @@
 import React from 'react';
 import c from './UserData.module.css';
 
-const UserData = () => {
-
-  const userData = {id: 1, name: 'Fox', dob: 'June 7', city: 'Kyiv', education: 'KNU\'14', website: 'https://www.lorem.ipsum', img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg'};
-
+const UserData = ({userData}) => {
   return (
     <div className={c.user_data}> 
       <img src={userData.img_src} />
