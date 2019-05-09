@@ -1,0 +1,10 @@
+.aside {
+    grid-area: aside;
+    grid-template-areas: 
+        "nav"
+        "friendList";
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-content: center;
+}

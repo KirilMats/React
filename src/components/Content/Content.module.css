@@ -5,3 +5,9 @@
   width: 100%;
   height: 174px;
 }
+
+@media (max-width: 600px) {
+  .content > img {
+    display: none;
+  }
+}

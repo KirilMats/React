@@ -10,7 +10,7 @@ body {
   display: grid;
   grid-template-areas: 
   "header header"
-  "nav content";
+  "aside content";
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   justify-content: center;
@@ -28,7 +28,7 @@ body {
     grid-template-rows: 60px 180px 1fr;
     grid-template-areas: 
     "header header"
-    "nav nav"
+    "aside aside"
     "content content";
   }
 }

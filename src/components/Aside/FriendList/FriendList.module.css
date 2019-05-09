@@ -1,0 +1,17 @@
+.friendList{
+    margin-top: 50px;
+    grid-area: friendList;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+.friendList > h2{
+    color: #FF9800;
+}
+
+.friends{
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+}
