@@ -2,6 +2,7 @@ import React from 'react';
 import c from './Messages.module.css';
 import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
+import NewMessage from './NewMessage/NewMessage';
 
 const Messages = ({dialogData, messageData}) => {
   const dialogs = dialogData.map( (d, index) => <Dialog key={index} id={d.id} name ={d.name} img_src={d.img_src} />)
@@ -18,10 +19,7 @@ const Messages = ({dialogData, messageData}) => {
       </div>
       <div className={c.message_items}>
         { messages }
-        <div className={c.create_msg}>
-          <input className={c.write_msg} type="text" placeholder="Write a message..." />
-          <input className={c.send_msg} type="submit" value="Send"/>
-        </div>   
+        <NewMessage />
       </div>
     </div>
   )

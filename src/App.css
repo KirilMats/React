@@ -25,7 +25,7 @@ body {
   .App {
     padding: 0 2%;
     grid-template-columns: 4fr 8fr;
-    grid-template-rows: 60px 180px 1fr;
+    grid-template-rows: 60px 320px 1fr;
     grid-template-areas: 
     "header header"
     "aside aside"

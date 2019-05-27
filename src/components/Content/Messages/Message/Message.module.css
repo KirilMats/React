@@ -21,6 +21,7 @@
   height: 50px;
   border-radius: 50%;
   background-color: #ffffff;
+  object-fit: cover;
 }
 
 @media (max-width: 1024px) {

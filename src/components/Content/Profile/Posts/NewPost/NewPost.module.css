@@ -7,11 +7,11 @@
   justify-content: flex-start;
 }
 
-.form {
+.newPostForm {
   width: 80%;
 }
 
-.form textarea {
+.newPostForm textarea {
   box-sizing: border-box;
   padding: 10px;
   font-size: 18px;
@@ -23,17 +23,17 @@
   resize: none;
 }
 
-.form textarea::-webkit-input-placeholder {
+.newPostForm textarea::-webkit-input-placeholder {
   color: #ffffff;
 }
 
-.form textarea:focus,
+.newPostForm textarea:focus,
 .content .posts .new-post input:focus {
   border: 2px solid #FF9800;
   outline: none;
 }
 
-.form input {
+.newPostForm input {
   display: block;
   width: 100px;
   height: 30px;
@@ -46,13 +46,13 @@
   font-weight: 400;
 }
 
-.form input:hover {
+.newPostForm input:hover {
   opacity: 0.8;
   transition: 200ms;
   cursor: pointer;
 }
 
-.form input:active {
+.newPostForm input:active {
   border: 2px solid #FF9800;
 }
 
@@ -61,11 +61,11 @@
     align-items: center;
   }
 
-  .form {
+  .newPostForm {
     width: 90%;
   }
 
-  .form textarea {
+  .newPostForm textarea {
     height: 100px;
   }
 }

@@ -15,3 +15,9 @@
     flex-flow: row nowrap;
     justify-content: space-between;
 }
+
+@media (max-width: 600px) {
+    .friendList{
+        margin-top: 0;
+    }
+}
