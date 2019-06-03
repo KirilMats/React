@@ -1,22 +1,23 @@
 import React from 'react';
 import c from './NewPost.module.css';
 
-const NewPost = ({addPost}) => {
+const NewPost = ({addPost, newPostText, updateNewPostText}) => {
   let newPostElement = React.createRef();
+  
+  let onPostChange = () => {
+    let text = newPostElement.current.value;
+    updateNewPostText(text);
+  }
 
   let addNewPost = (e) => {
     e.preventDefault();
-    let text = newPostElement.current.value;
-    
-    addPost(text);
-
-    newPostElement.current.value = '';
+    addPost();
   }
 
   return (
     <div className={c.new_post}>
       <form className={c.newPostForm} action="#" >
-        <textarea ref={newPostElement} placeholder="Have a news?"></textarea>
+        <textarea onChange={onPostChange} value={newPostText} ref={newPostElement} placeholder="Have a news?"></textarea>
         <input onClick={ addNewPost } type="submit" value="Send" />
       </form>
     </div>

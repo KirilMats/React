@@ -2,13 +2,13 @@ import React from 'react';
 import LikeDislike from './LikeDislike/LikeDislike';
 import c from './Post.module.css';
 
-const Post = (props) => {
+const Post = ({likes, dislikes, img_src, post_text, addLike, addDislike}) => {
   return (
     <div className={c.post}>
       <div className={c.item}>
-        <LikeDislike likes={props.likes} dislikes={props.dislikes} />
-        <img className={c.user_photo} src={props.img_src} />
-        <div className={c.post_text}>{props.post_text}</div>
+        <LikeDislike likes={likes} dislikes={dislikes} addLike={addLike} addDislike={addDislike} />
+        <img className={c.user_photo} src={img_src} />
+        <div className={c.post_text}>{post_text}</div>
       </div>
     </div>
   )

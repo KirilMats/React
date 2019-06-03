@@ -32,7 +32,8 @@ const friendData = [
 const  state = {
     profileData: { 
         userData, 
-        postData
+        postData,
+        newPostText: ''
     },
     messagesData: {       
         dialogData, 
@@ -40,16 +41,33 @@ const  state = {
     },
     asideData: {friendData}
 }
+window.state = state;
 
-export let addPost = (postText) => {
+export let updateNewPostText = (newText) => {
+  state.profileData.newPostText = newText;
+  rerenderEntireTree(state, addPost, updateNewPostText, addLike, addDislike);
+}
+
+export let addPost = () => {
     let newPost = {
-       id: 3,
+       id: postData.length == 0 ? 1 : postData[postData.length - 1].id + 1,
        likes: 0,
        dislikes: 0,
-       text: postText
+       text: state.profileData.newPostText
     }
     state.profileData.postData.push(newPost);
-    rerenderEntireTree(state, addPost);
+    updateNewPostText('');
+    rerenderEntireTree(state, addPost, updateNewPostText, addLike, addDislike);
+}
+
+export let addLike = () => {
+  state.profileData.postData.likes++;
+  debugger;
+  rerenderEntireTree(state, addPost, updateNewPostText, addLike, addDislike);
+}
+
+export let addDislike = () => {
+  
 }
 
 export default state;
