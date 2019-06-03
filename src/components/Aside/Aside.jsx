@@ -4,12 +4,12 @@ import FriendList from './FriendList/FriendList';
 import c from './Aside.module.css';
 
 const Aside = ({state}) => {
-    const {asideData} = state;
+    const {friendData} = state.asideData; // friendData = state.asideData.friendData
     
     return (
         <aside className={c.aside}>
             <NavBar />
-            <FriendList friendData={asideData.friendData} />
+            <FriendList friendData={friendData} />
         </aside>
     )
 }
