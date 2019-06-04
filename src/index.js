@@ -7,7 +7,8 @@ import * as serviceWorker from './serviceWorker';
 import store from './redux/state';
 
 let rerenderEntireTree = (state) => {
-    ReactDOM.render(<BrowserRouter><App state={state} addPost={store.addPost.bind(store)} updateNewPostText={store.updateNewPostText.bind(store)} addLike={store.addLike.bind(store)} addDislike={store.addDislike.bind(store)} /></BrowserRouter>, document.getElementById('root'));
+    ReactDOM.render(<BrowserRouter><App state={state} dispatch={store.dispatch.bind(store)} /></BrowserRouter>, document.getElementById('root'));
+    console.log('Tree was rerendered');
 }
 
 rerenderEntireTree(store.getState());

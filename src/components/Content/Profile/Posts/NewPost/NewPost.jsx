@@ -1,17 +1,17 @@
 import React from 'react';
 import c from './NewPost.module.css';
 
-const NewPost = ({addPost, newPostText, updateNewPostText}) => {
+const NewPost = ({newPostText, dispatch}) => {
   let newPostElement = React.createRef();
   
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    updateNewPostText(text);
+    dispatch({type: 'UPDATE-NEW-POST-TEXT', text: text});
   }
 
   let addNewPost = (e) => {
     e.preventDefault();
-    addPost();
+    dispatch({type: 'ADD-POST'});
   }
 
   return (

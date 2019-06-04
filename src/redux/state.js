@@ -104,28 +104,27 @@ const store = {
     subscribe(observer) {
         this._callSubscriber = observer;
     },
-    updateNewPostText(newText) {
-        this._state.profileData.newPostText = newText;
-        this._callSubscriber(this._state);
-    },
-    addPost() {
-        const postData = this._state.profileData.postData;
-        let newPost = {
-           id: postData.length == 0 ? 1 : postData[postData.length - 1].id + 1,
-           likes: 0,
-           dislikes: 0,
-           text: this._state.profileData.newPostText
+    dispatch(action) {
+        if(action.type === 'ADD-POST', action.text){
+            const postData = this._state.profileData.postData;
+            let newPost = {
+            id: postData.length == 0 ? 1 : postData[postData.length - 1].id + 1,
+            likes: 0,
+            dislikes: 0,
+            text: this._state.profileData.newPostText
+            }
+            this._state.profileData.postData.push(newPost);
+            this._state.profileData.newPostText = '';
+            this._callSubscriber(this._state);
+        }else if(action.type === 'UPDATE-NEW-POST-TEXT'){
+            this._state.profileData.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        }else if(action.type === 'ADD-LIKE') {
+            console.log(action.likes);
+            action.likes += 1;
+            console.log(action.likes);
+            this._callSubscriber(this._state);
         }
-        this._state.profileData.postData.push(newPost);
-        this.updateNewPostText('');
-        this._callSubscriber(this._state);
-    },
-    addLike() {
-        this._state.profileData.postData.likes++;
-        this._callSubscriber(this._state);
-    },
-    addDislike() {
-  
     }
 }
 

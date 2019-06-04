@@ -2,11 +2,11 @@ import React from 'react';
 import LikeDislike from './LikeDislike/LikeDislike';
 import c from './Post.module.css';
 
-const Post = ({likes, dislikes, img_src, post_text, addLike, addDislike}) => {
+const Post = ({likes, dislikes, img_src, post_text, dispatch}) => {
   return (
     <div className={c.post}>
       <div className={c.item}>
-        <LikeDislike likes={likes} dislikes={dislikes} addLike={addLike} addDislike={addDislike} />
+        <LikeDislike likes={likes} dislikes={dislikes} addLike={dispatch.addLike} addDislike={dispatch.addDislike} />
         <img className={c.user_photo} src={img_src} />
         <div className={c.post_text}>{post_text}</div>
       </div>
