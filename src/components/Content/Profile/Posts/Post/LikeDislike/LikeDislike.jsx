@@ -1,10 +1,11 @@
 import React from 'react';
 import c from './LikeDislike.module.css';
+import { addLikeActionCreator } from '../../../../../../redux/state';
 
 const LikeDislike = ({likes, dislikes, dispatch}) => {
   let addNewLike = (e) => {
     e.preventDefault();
-    dispatch({type: 'ADD-LIKE'});
+    dispatch(addLikeActionCreator(likes));
   }
   console.log('likes:' + likes);
   return (

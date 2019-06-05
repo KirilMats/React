@@ -6,7 +6,7 @@ const Post = ({likes, dislikes, img_src, post_text, dispatch}) => {
   return (
     <div className={c.post}>
       <div className={c.item}>
-        <LikeDislike likes={likes} dislikes={dislikes} addLike={dispatch.addLike} addDislike={dispatch.addDislike} />
+        <LikeDislike likes={likes} dislikes={dislikes} dispatch={dispatch} />
         <img className={c.user_photo} src={img_src} />
         <div className={c.post_text}>{post_text}</div>
       </div>

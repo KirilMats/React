@@ -59,6 +59,9 @@
 // export const subscribe = (observer) => {
 //     rerenderEntireTree = observer;
 // }
+const ADD_POST = 'ADD-POST',
+      UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT',
+      ADD_LIKE = 'ADD-LIKE';
 
 const store = {
     _state: {
@@ -105,7 +108,7 @@ const store = {
         this._callSubscriber = observer;
     },
     dispatch(action) {
-        if(action.type === 'ADD-POST', action.text){
+        if(action.type === ADD_POST){
             const postData = this._state.profileData.postData;
             let newPost = {
             id: postData.length == 0 ? 1 : postData[postData.length - 1].id + 1,
@@ -116,10 +119,10 @@ const store = {
             this._state.profileData.postData.push(newPost);
             this._state.profileData.newPostText = '';
             this._callSubscriber(this._state);
-        }else if(action.type === 'UPDATE-NEW-POST-TEXT'){
+        }else if(action.type === UPDATE_NEW_POST_TEXT){
             this._state.profileData.newPostText = action.newText;
             this._callSubscriber(this._state);
-        }else if(action.type === 'ADD-LIKE') {
+        }else if(action.type === 'ADD-LIKE'){
             console.log(action.likes);
             action.likes += 1;
             console.log(action.likes);
@@ -128,4 +131,12 @@ const store = {
     }
 }
 
+export const addPostActionCreator = () => ({type: ADD_POST}); //ES6 syntax, removed function body and just returned an object ({}) - круглые скобки нужны для обозначения того что это обьект, а не тело функции
+
+  
+export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
+
+
+export const addLikeActionCreator = (likes) => ({type: ADD_LIKE, likes: likes});
+  
 export default store;
