@@ -122,7 +122,7 @@ const store = {
         }else if(action.type === UPDATE_NEW_POST_TEXT){
             this._state.profileData.newPostText = action.newText;
             this._callSubscriber(this._state);
-        }else if(action.type === 'ADD-LIKE'){
+        }else if(action.type === ADD_LIKE){
             console.log(action.likes);
             action.likes += 1;
             console.log(action.likes);
@@ -131,7 +131,7 @@ const store = {
     }
 }
 
-export const addPostActionCreator = () => ({type: ADD_POST}); //ES6 syntax, removed function body and just returned an object ({}) - круглые скобки нужны для обозначения того что это обьект, а не тело функции
+export const addPostActionCreator = () => ({type: ADD_POST}); //ES6 syntax,function body is removed and object ({}) is returned - круглые скобки нужны для обозначения того что это обьект, а не тело функции
 
   
 export const updateNewPostTextActionCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
