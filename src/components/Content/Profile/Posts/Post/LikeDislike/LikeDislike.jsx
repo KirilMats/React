@@ -1,13 +1,14 @@
 import React from 'react';
 import c from './LikeDislike.module.css';
-import { addLikeActionCreator } from '../../../../../../redux/state';
+import { addLikeCreator } from '../../../../../../redux/profile-reducer';
 
 const LikeDislike = ({likes, dislikes, dispatch}) => {
   let addNewLike = (e) => {
     e.preventDefault();
-    dispatch(addLikeActionCreator(likes));
+    dispatch(addLikeCreator(likes));
+    console.log('likes: ' + likes);
   }
-  console.log('likes:' + likes);
+  console.log('likes: ' + likes);
   return (
     <div className={c.like_dislike}>
       <form className={c.like_dislike_form} action="">

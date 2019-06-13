@@ -1,15 +1,12 @@
 .message {
   display: flex;
-  flex-flow: row nowrap;
+  flex-flow: row-reverse nowrap;
   align-items: center;
   width: 95%;
   border: 1px solid #C7CBD1;
   border-radius: 2px;
   margin: 5px 0;
   padding: 10px 5px;
-}
-.message:nth-child(2n+1){
-  flex-direction: row-reverse;
 }
 .message_container {
   padding: 0 10px;

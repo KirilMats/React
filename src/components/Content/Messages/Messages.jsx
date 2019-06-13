@@ -4,7 +4,7 @@ import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
 import NewMessage from './NewMessage/NewMessage';
 
-const Messages = ({dialogData, messageData}) => {
+const Messages = ({dialogData, messageData, newMessageBody, dispatch}) => {
   const dialogs = dialogData.map( (d, index) => <Dialog key={index} id={d.id} name ={d.name} img_src={d.img_src} />)
   
   const messages = messageData.map( (m, index) => <Message key={index} img_src={m.img_src} message={m.message} />)
@@ -19,7 +19,7 @@ const Messages = ({dialogData, messageData}) => {
       </div>
       <div className={c.message_items}>
         { messages }
-        <NewMessage />
+        <NewMessage newMessageBody={newMessageBody} dispatch={dispatch} />
       </div>
     </div>
   )
