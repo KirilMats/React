@@ -4,8 +4,8 @@ import { updateNewMessageBodyCreator, sendMessageCreator } from '../../../../red
 
 const NewMessage = ({newMessageBody, dispatch}) => {
     let onMessageChange = (e) => {
-        let text = e.target.value;
-        dispatch(updateNewMessageBodyCreator(text));
+        let changedMsgBody = e.target.value;
+        dispatch(updateNewMessageBodyCreator(changedMsgBody));
     }
 
     let sendMessage = (e) => {
