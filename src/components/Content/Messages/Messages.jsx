@@ -4,8 +4,8 @@ import Dialog from './Dialog/Dialog';
 import Message from './Message/Message';
 import NewMessage from './NewMessage/NewMessage';
 
-const Messages = ({messagesData, dispatch}) => {
-  const {dialogData, messageData, newMessageBody} = messagesData;
+const Messages = (props) => {
+  const {dialogData, messageData, newMessageBody} = props.store.getState().messagesData;
   
   const dialogs = dialogData.map( (d, index) => <Dialog key={index} id={d.id} name ={d.name} img_src={d.img_src} />)
   
@@ -23,7 +23,7 @@ const Messages = ({messagesData, dispatch}) => {
         <div className={c.message_items}>
           { messages }
         </div>
-        <NewMessage newMessageBody={newMessageBody} dispatch={dispatch} />
+        <NewMessage newMessageBody={newMessageBody} dispatch={props.store.dispatch} />
       </div>
     </div>
   )

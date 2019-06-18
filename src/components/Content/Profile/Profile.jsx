@@ -1,14 +1,14 @@
 import React from 'react';
-import Posts from './Posts/Posts';
+import PostsContainer from './Posts/PostsContainer';
 import UserData from './UserData/UserData';
 import c from './Profile.module.css';
 
-const Profile = ({profileData, dispatch}) => {
-  
+const Profile = (props) => {
+  const {profileData} = props.store.getState();
   return (
     <div className={c.profile}>
       <UserData userData={profileData.userData} />
-      <Posts profileData={profileData} dispatch={dispatch} />
+      <PostsContainer />
     </div>
   )
 }

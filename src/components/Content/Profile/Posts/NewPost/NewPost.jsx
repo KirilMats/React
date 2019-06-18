@@ -1,23 +1,22 @@
 import React from 'react';
 import c from './NewPost.module.css';
-import { updateNewPostTextCreator, addPostCreator } from '../../../../../redux/profile-reducer';
 
-const NewPost = ({newPostText, dispatch}) => {
+const NewPost = ({newPostText, postChange, addNewPost}) => {
   let onPostChange = (e) => {
     let text = e.target.value;
-    dispatch(updateNewPostTextCreator(text));
+    postChange(text);
   }
 
-  let addNewPost = (e) => {
+  let onAddNewPost = (e) => {
     e.preventDefault();
-    dispatch(addPostCreator());
+    addNewPost();
   }
 
   return (
     <div className={c.new_post}>
       <form className={c.newPostForm} action="#" >
         <textarea onChange={onPostChange} value={newPostText} placeholder="Have a news?"></textarea>
-        <input onClick={ addNewPost } type="submit" value="Add" />
+        <input onClick={onAddNewPost} type="submit" value="Add" />
       </form>
     </div>
   )
