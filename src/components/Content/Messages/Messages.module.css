@@ -1,14 +1,27 @@
 .dialogs {
   display: flex;
   flex-flow: row nowrap;
+  height: 70vh;
+  border: 1px solid #C7CBD1;
+  padding: 10px;
   overflow: hidden;
 }
 
-.message_items {
+.messages_wrap {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
-  width: 80%;
   align-items: center;
+  justify-content: space-between;
+  width: 80%;
+}
+
+.message_items {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  overflow-y: auto;
 }
 
 .dialog_items {
@@ -16,13 +29,12 @@
   flex-flow: column nowrap;
   width: 20%;
   align-items: center;
-  margin-top: 5px;
-  border: 1px solid #C7CBD1;
+  height: 70vh;
 }
 
 .search_bar {
   width: 94%;
-  margin: 10px auto;
+  margin: 0 auto;
 }
 
 .search_bar > input {
@@ -35,7 +47,7 @@
 } 
 
 @media (max-width: 1024px) {
-  .message_items {
+  .messages_wrap {
     width: 70%;
   }
   .dialog_items {

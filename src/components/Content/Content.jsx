@@ -13,8 +13,8 @@ const Content = ({state, dispatch}) => {
   return (
     <main className={c.content}>
       <img src="https://luminous-landscape.com/wp-content/uploads/2012/11/LL_Landscape_11-12-12.jpg" />
-      <Route render={ () => <Profile userData={profileData.userData} postData={profileData.postData} newPostText={profileData.newPostText} dispatch={dispatch} />} path='/profile' />
-      <Route render={ () => <Messages dialogData={messagesData.dialogData} messageData={messagesData.messageData} newMessageBody={messagesData.newMessageBody} dispatch={dispatch} />} path='/dialogs' />
+      <Route render={ () => <Profile profileData={profileData} dispatch={dispatch} />} path='/profile' />
+      <Route render={ () => <Messages messagesData={messagesData} dispatch={dispatch} />} path='/dialogs' />
       <Route render={ () => <Feed />} path='/feed' />
       <Route render={ () => <Music />} path='/music' />
       <Route render={ () => <Settings />} path='/settings' />

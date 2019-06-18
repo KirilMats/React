@@ -4,6 +4,7 @@
 .content > img {
   width: 100%;
   height: 174px;
+  max-height: 30vh;
 }
 
 @media (max-width: 600px) {
