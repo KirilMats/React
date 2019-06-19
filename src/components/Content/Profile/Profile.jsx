@@ -4,11 +4,11 @@ import UserData from './UserData/UserData';
 import c from './Profile.module.css';
 
 const Profile = (props) => {
-  const {profileData} = props.store.getState();
+  
   return (
     <div className={c.profile}>
-      <UserData userData={profileData.userData} />
-      <PostsContainer />
+      <UserData store={props.store} />
+      <PostsContainer store={props.store} />
     </div>
   )
 }

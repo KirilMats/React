@@ -1,7 +1,9 @@
 import React from 'react';
 import c from './UserData.module.css';
 
-const UserData = ({userData}) => {
+const UserData = (props) => {
+  const {userData} = props.store.getState().profileData;
+
   return (
     <div className={c.user_data}> 
       <img src={userData.img_src} />

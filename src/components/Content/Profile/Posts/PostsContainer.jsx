@@ -1,15 +1,24 @@
 import React from 'react';
 import Posts from './Posts';
-import { updateNewPostTextCreator, addPostCreator } from '../../../../redux/profile-reducer';
+import { updateNewPostTextCreator, addPostCreator, addLikeCreator, addDislikeCreator } from '../../../../redux/profile-reducer';
 
-const PostsContainer = ({profileData, dispatch}) => {
+const PostsContainer = (props) => {
+  const {profileData} = props.store.getState(),
+        {dispatch} = props.store.dispatch;
+
   const onPostChange = (text) => {
     dispatch(updateNewPostTextCreator(text));
   }
   const addPost = () => {
     dispatch(addPostCreator());
   }
-  return <Posts postChange={onPostChange} addNewPost={addPost} postData={profileData.postData} newPostText={profileData.newPostText}/>;
+  const addLike = (currentLikes, index) => {
+    dispatch(addLikeCreator(currentLikes, index));
+  }
+  const addDislike = (currentDislikes, index) => {
+    dispatch(addDislikeCreator(currentDislikes, index));
+  }
+  return <Posts postChange={onPostChange} addNewPost={addPost} addLike={addLike} addDislike={addDislike} profileData={profileData} newPostText={profileData.newPostText}/>;
 }
 
 export default PostsContainer;
