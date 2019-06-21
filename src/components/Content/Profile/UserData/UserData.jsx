@@ -1,8 +1,9 @@
 import React from 'react';
 import c from './UserData.module.css';
+import store from './../../../../redux/redux_store';
 
-const UserData = (props) => {
-  const {userData} = props.store.getState().profileData;
+const UserData = () => {
+  const {userData} = store.getState().profileData;
 
   return (
     <div className={c.user_data}> 

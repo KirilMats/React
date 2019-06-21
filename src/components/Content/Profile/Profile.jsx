@@ -3,12 +3,12 @@ import PostsContainer from './Posts/PostsContainer';
 import UserData from './UserData/UserData';
 import c from './Profile.module.css';
 
-const Profile = (props) => {
+const Profile = () => {
   
   return (
     <div className={c.profile}>
-      <UserData store={props.store} />
-      <PostsContainer store={props.store} />
+      <UserData />
+      <PostsContainer />
     </div>
   )
 }
