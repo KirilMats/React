@@ -14,10 +14,12 @@ const initialState =  {
 
 const profileReducer = (state = initialState, action) => {
     switch(action.type){
-        case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
-        case ADD_POST:
+        case UPDATE_NEW_POST_TEXT: {
+            let stateCopy = {...state};
+            stateCopy.newPostText = action.newText;
+            return stateCopy;
+        }
+        case ADD_POST: {
             const postData = state.postData;
             let newPost = {
             id: postData.length == 0 ? 1 : postData[postData.length - 1].id + 1,
@@ -25,19 +27,28 @@ const profileReducer = (state = initialState, action) => {
             dislikes: 0,
             text: state.newPostText
             }
-            postData.push(newPost);
-            state.newPostText = '';
-            return state; 
-        case ADD_LIKE:
+            let stateCopy = {...state};
+            stateCopy.postData = [...state.postData];
+            stateCopy.postData.push(newPost);
+            stateCopy.newPostText = '';
+            return stateCopy; 
+        }
+        case ADD_LIKE: {
+            let stateCopy = {...state};
+            stateCopy.postData = [...state.postData];
             let addedLikes = action.likes + 1;
-            state.postData[action.index].likes = addedLikes;
-            return state;
-        case ADD_DISLIKE:
+            stateCopy.postData[action.index].likes = addedLikes;
+            return stateCopy;
+        }
+        case ADD_DISLIKE: {
+            let stateCopy = {...state};
+            stateCopy.postData = [...state.postData];
             console.log(action.dislikes, state.postData[action.index].dislikes);
             let addedDislikes = action.dislikes + 1;
-            state.postData[action.index].dislikes = addedDislikes;
+            stateCopy.postData[action.index].dislikes = addedDislikes;
             console.log(action.dislikes, state.postData[action.index].dislikes);
-            return state;
+            return stateCopy;
+        }
         default: return state;
     }
 }

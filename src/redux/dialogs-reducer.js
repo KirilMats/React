@@ -20,19 +20,24 @@ const initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
     switch(action.type) {
-        case UPDATE_NEW_MESSAGE_BODY:
-            state.newMessageBody = action.newMsgBody;
-            return state;
-        case SEND_MESSAGE:
+        case UPDATE_NEW_MESSAGE_BODY: {
+            let stateCopy = {...state};
+            stateCopy.newMessageBody = action.newMsgBody;
+            return stateCopy;
+        }
+        case SEND_MESSAGE: {
             const messageData = state.messageData;
             let newMessage = {
                 id: messageData.length == 0 ? 1 : messageData[messageData.length - 1].id + 1,
                 message: state.newMessageBody,
                 img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg*'
             }
-            messageData.push(newMessage);
-            state.newMessageBody = '';
-            return state;
+            let stateCopy = {...state};
+            stateCopy.messageData = [...state.messageData];
+            stateCopy.messageData.push(newMessage);
+            stateCopy.newMessageBody = '';
+            return stateCopy;
+        }
         default: return state;
     }
 }
