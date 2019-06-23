@@ -11,8 +11,8 @@ const initialState = {
     ], 
     messageData: [
         { id: 1, message: 'How many dragons do you still have?', img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg*' },
-        { id: 3, message: 'Poor you...', img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg*' },
-        { id: 5, message: 'Yeah...That is really uplifting...', img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg' }
+        { id: 2, message: 'Poor you...', img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg*' },
+        { id: 3, message: 'Yeah...That is really uplifting...', img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg' }
     ],
     newMessageBody: ''
 }
@@ -20,24 +20,18 @@ const initialState = {
 
 const dialogsReducer = (state = initialState, action) => {
     switch(action.type) {
-        case UPDATE_NEW_MESSAGE_BODY: {
-            let stateCopy = {...state};
-            stateCopy.newMessageBody = action.newMsgBody;
-            return stateCopy;
-        }
-        case SEND_MESSAGE: {
-            const messageData = state.messageData;
-            let newMessage = {
-                id: messageData.length == 0 ? 1 : messageData[messageData.length - 1].id + 1,
-                message: state.newMessageBody,
-                img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg*'
+        case UPDATE_NEW_MESSAGE_BODY:
+            return {
+                ...state, 
+                newMessageBody: action.newMsgBody
             }
-            let stateCopy = {...state};
-            stateCopy.messageData = [...state.messageData];
-            stateCopy.messageData.push(newMessage);
-            stateCopy.newMessageBody = '';
-            return stateCopy;
-        }
+        case SEND_MESSAGE:
+            console.log(state.messageData);
+            return {
+                ...state, 
+                newMessageBody: '', 
+                messageData: [...state.messageData, {id: state.messageData.length == 0 ? 1 : state.messageData[state.messageData.length - 1].id + 1, message: state.newMessageBody, img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg*' }]
+            }       
         default: return state;
     }
 }

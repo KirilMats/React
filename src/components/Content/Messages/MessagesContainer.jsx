@@ -8,8 +8,8 @@ import { connect } from 'react-redux';
 const mapStateToProps = (state) => {
   return {
     newMessageBody: state.messagesData.newMessageBody,
-    dialogs: state.messagesData.dialogData.map( (d, index) => <Dialog key={index} id={d.id} name ={d.name} img_src={d.img_src} />),      
-    messages:  state.messagesData.messageData.map( (m, index) => <Message key={index} img_src={m.img_src} message={m.message} />)
+    dialogs: state.messagesData.dialogData.map( (d) => <Dialog key={d.id} id={d.id} name ={d.name} img_src={d.img_src} />),      
+    messages:  state.messagesData.messageData.map( (m) => <Message key={m.id} img_src={m.img_src} message={m.message} />)
   }
 }
 

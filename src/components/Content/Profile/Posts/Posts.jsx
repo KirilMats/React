@@ -7,7 +7,7 @@ const Posts = (props) => {
   const {profileData, postChange, addNewPost, addLike, addDislike} = props;
   const {postData, userData, newPostText} = profileData;
 
-  const posts = postData.map( (p, index) => <Post key={index} index={index} likes={p.likes} dislikes={p.dislikes} post_text={p.text} img_src={userData.img_src} addLike={addLike} addDislike={addDislike} />)
+  const posts = postData.map( (p, index) => <Post key={p.id} index={index} likes={p.likes} dislikes={p.dislikes} post_text={p.text} img_src={userData.img_src} addLike={addLike} addDislike={addDislike} />)
   
   return (
     <div className={c.posts}>
