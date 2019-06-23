@@ -3,6 +3,7 @@ import c from './Messages.module.css';
 import NewMessage from './NewMessage/NewMessage';
 
 const Messages = (props) => {
+  console.log(props.changeMessage);
   return (
     <div className={c.dialogs}>
       <div className={c.dialog_items}>
