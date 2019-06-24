@@ -13,4 +13,4 @@ const store = createStore(reducers);
 
 export default store;
 
-console.log(store.replaceReducer);
+console.log(store.dispatch);
