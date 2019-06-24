@@ -1,7 +1,4 @@
-const ADD_POST = 'ADD-POST',
-      UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT',
-      ADD_LIKE = 'ADD-LIKE',
-      ADD_DISLIKE = 'ADD-DISLIKE';
+const [ADD_POST, UPDATE_NEW_POST_TEXT, ADD_LIKE, ADD_DISLIKE] = ['ADD-POST', 'UPDATE-NEW-POST-TEXT', 'ADD-LIKE', 'ADD-DISLIKE'];
 
 
 // profileData
@@ -18,29 +15,31 @@ const initialState =  {
 const profileReducer = (state = initialState, action) => {
     switch(action.type){
         case UPDATE_NEW_POST_TEXT:
-            state.newPostText = action.newText;
-            return state;
-        case ADD_POST:
-            const postData = state.postData;
-            let newPost = {
-            id: postData.length == 0 ? 1 : postData[postData.length - 1].id + 1,
-            likes: 0,
-            dislikes: 0,
-            text: state.newPostText
+            return {
+                ...state, 
+                newPostText: action.newText
             }
-            postData.push(newPost);
-            state.newPostText = '';
-            return state; 
-        case ADD_LIKE:
+        case ADD_POST:
+            console.log(state.postData);
+            return {
+                ...state, 
+                newPostText: '', 
+                postData: [...state.postData, {id: state.postData.length == 0 ? 1 : state.postData[state.postData.length - 1].id + 1, likes: 0, dislikes: 0, text: state.newPostText}] 
+            }
+        case ADD_LIKE:{
+            let stateCopy = {...state};
+                stateCopy.postData = [...state.postData];
             let addedLikes = action.likes + 1;
-            state.postData[action.index].likes = addedLikes;
-            return state;
-        case ADD_DISLIKE:
-            console.log(action.dislikes, state.postData[action.index].dislikes);
+            stateCopy.postData[action.index].likes = addedLikes;
+            return stateCopy;
+        }
+        case ADD_DISLIKE:{
+            let stateCopy = {...state};
+                stateCopy.postData = [...state.postData];
             let addedDislikes = action.dislikes + 1;
-            state.postData[action.index].dislikes = addedDislikes;
-            console.log(action.dislikes, state.postData[action.index].dislikes);
-            return state;
+            stateCopy.postData[action.index].dislikes = addedDislikes;
+            return stateCopy;
+        }
         default: return state;
     }
 }

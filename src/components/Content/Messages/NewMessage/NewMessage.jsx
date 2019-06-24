@@ -1,23 +1,22 @@
 import React from 'react';
 import c from './NewMessage.module.css';
-import { updateNewMessageBodyCreator, sendMessageCreator } from '../../../../redux/dialogs-reducer';
 
-const NewMessage = ({newMessageBody, dispatch}) => {
+const NewMessage = (props) => {
     let onMessageChange = (e) => {
         let changedMsgBody = e.target.value;
-        dispatch(updateNewMessageBodyCreator(changedMsgBody));
+        props.changeMessage(changedMsgBody);
     }
 
-    let sendMessage = (e) => {
+    let onSendMessage = (e) => {
       e.preventDefault();
-      dispatch(sendMessageCreator());
+      props.sendMessage();
     }
 
     return (
         <div className={c.create_msg}>
           <form className={c.newMsgForm} action="#">
-            <input className={c.write_msg} onChange={onMessageChange} value={newMessageBody} type="text" placeholder="Write a message..." />
-            <input className={c.send_msg} onClick={ sendMessage } type="submit" value="Send"/>
+            <input className={c.write_msg} onChange={onMessageChange} value={props.newMessageBody} type="text" placeholder="Write a message..." />
+            <input className={c.send_msg} onClick={ onSendMessage } type="submit" value="Send"/>
           </form>  
         </div>
     )

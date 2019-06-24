@@ -1,17 +1,16 @@
 import React from 'react';
 import c from './LikeDislike.module.css';
-import { addLikeCreator, addDislikeCreator } from '../../../../../../redux/profile-reducer';
 
-const LikeDislike = ({index, likes, dislikes, dispatch}) => {
+const LikeDislike = ({index, likes, dislikes, addLike, addDislike}) => {
   let addNewLike = (e) => {
     e.preventDefault();
     let currentLikes = likes;
-    dispatch(addLikeCreator(currentLikes, index));
+    addLike(currentLikes, index);
   }
   let addNewDislike = (e) => {
     e.preventDefault();
     let currentDislikes = dislikes;
-    dispatch(addDislikeCreator(currentDislikes, index));
+    addDislike(currentDislikes, index);
   }
 
   return (
