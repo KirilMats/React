@@ -1,7 +1,7 @@
 import React from 'react';
 import Friend from './Friend/Friend';
 import c from './FriendList.module.css';
-
+import {NavLink} from 'react-router-dom';
 
 const FriendList = ({friendData}) => {
 
@@ -9,7 +9,9 @@ const FriendList = ({friendData}) => {
 
     return (
         <div className={c.friendList}>
-            <h2>Friends</h2>
+            <div className={c.item}>
+                <NavLink to="/friends" activeClassName={c.active}>Friends</NavLink>
+            </div>
             <div className={c.friends}>
                 { friends }
             </div>

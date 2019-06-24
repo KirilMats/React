@@ -6,8 +6,28 @@
     align-items: center;
 }
 
-.friendList > h2{
+.item {
+    margin-bottom: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+.item a{
     color: #FF9800;
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 600;
+    padding: 7px 0;
+    display: block;
+    width: 100%;
+}
+
+.item a.active{
+    background-color: antiquewhite;
+}
+
+.item a:hover{
+    background-color: whitesmoke;
 }
 
 .friends{
