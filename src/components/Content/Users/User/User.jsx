@@ -2,15 +2,17 @@ import React from 'react';
 import c from './User.module.css';
 
 const User = (props) => {
+    let isFollowedDisplay = '';
+    props.isFollowed === true ? isFollowedDisplay = 'Unfollow' : isFollowedDisplay = 'Follow';
     return (
         <div className={c.user_item}>
             User<br />
-            {props.isFollowed === true ? <button type='submit' onClick={() => props.submitUnfollowing(props.id)}>Unfollow</button> : <button type='submit' onClick={() => props.submitFollowing(props.id)}>Follow</button>}<br />
+            <button type='submit' onClick={() => props.submitFollowing(props.id, props.isFollowed)}>{isFollowedDisplay}</button><br />
             {props.name}<br />
             {props.city}<br />
             {props.country}<br />
             {props.status}<br />
-            <img src={props.img_src} width="50" height="50" /><br /><br />
+            <img src={props.img_src} alt="" width="50" height="50" /><br /><br />
         </div>
     )
 }

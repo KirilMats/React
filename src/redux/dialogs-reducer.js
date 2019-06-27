@@ -26,11 +26,10 @@ const dialogsReducer = (state = initialState, action) => {
                 newMessageBody: action.newMsgBody
             }
         case SEND_MESSAGE:
-            console.log(state.messageData);
             return {
                 ...state, 
                 newMessageBody: '', 
-                messageData: [...state.messageData, {id: state.messageData.length == 0 ? 1 : state.messageData[state.messageData.length - 1].id + 1, message: state.newMessageBody, img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg*' }]
+                messageData: [...state.messageData, {id: state.messageData.length === 0 ? 1 : state.messageData[state.messageData.length - 1].id + 1, message: state.newMessageBody, img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg*' }]
             }       
         default: return state;
     }

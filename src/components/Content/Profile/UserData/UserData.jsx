@@ -7,7 +7,7 @@ const UserData = () => {
 
   return (
     <div className={c.user_data}> 
-      <img src={userData.img_src} />
+      <img src={userData.img_src} alt="" />
         <div className={c.user_info}>
         <div className={c.user_name}>Mr. {userData.name}</div>
         <div className={c.user_info_details}>

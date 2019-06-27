@@ -20,11 +20,10 @@ const profileReducer = (state = initialState, action) => {
                 newPostText: action.newText
             }
         case ADD_POST:
-            console.log(state.postData);
             return {
                 ...state, 
                 newPostText: '', 
-                postData: [...state.postData, {id: state.postData.length == 0 ? 1 : state.postData[state.postData.length - 1].id + 1, likes: 0, dislikes: 0, text: state.newPostText}] 
+                postData: [...state.postData, {id: state.postData.length === 0 ? 1 : state.postData[state.postData.length - 1].id + 1, likes: 0, dislikes: 0, text: state.newPostText}] 
             }
         case ADD_LIKE:{
             let stateCopy = {...state};

@@ -6,7 +6,7 @@ const Dialog = ( {img_src, name, id}) => {
   return (
     <div className={c.dialog}>
       <NavLink to={'/dialogs/' + id} activeClassName={c.active}>
-        <img className={c.interlocutor_photo} src={img_src} alt="photo"/>
+        <img className={c.interlocutor_photo} src={img_src} alt=""/>
         <span className={c.interlocutor_name}>{name}</span>
       </NavLink>
     </div>

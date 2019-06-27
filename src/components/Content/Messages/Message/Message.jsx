@@ -4,7 +4,7 @@ import c from './Message.module.css';
 const Message = (props) => {
   return (
     <div className={c.message}>
-      <img src={props.img_src} alt="photo"/>
+      <img src={props.img_src} alt="" />
       <div className={c.message_container}>
         {props.message}     
       </div>

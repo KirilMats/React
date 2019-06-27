@@ -12,7 +12,7 @@ import { Route, Redirect } from 'react-router-dom';
 const Content = () => {
   return (
     <main className={c.content}>
-      <img src="https://luminous-landscape.com/wp-content/uploads/2012/11/LL_Landscape_11-12-12.jpg" />
+      <img src="https://luminous-landscape.com/wp-content/uploads/2012/11/LL_Landscape_11-12-12.jpg" alt="" />
       <Redirect from="/" to="/profile" />
       <Route render={ () => <Profile />} path='/profile' />
       <Route render={ () => <UsersContainer />} path='/users' />
