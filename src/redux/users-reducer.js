@@ -14,7 +14,7 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 users: [...state.users].map( (u) => {
                     if(u.id === action.id) {
-                        return action.isFollowed === true ? {...u, isFollowed: false} : {...u, isFollowed: true}
+                        return action.isFollowed === true ? {...u, followed: false} : {...u, followed: true}
                     }
                     return u;
                 })
@@ -26,7 +26,7 @@ const usersReducer = (state = initialState, action) => {
 }
 
 //ACTIONS 
-export const submitFollowingAC = (index, isFollowed) => ({type: SUBMIT_FOLLOWING, isFollowed: isFollowed, id: index});
+export const submitFollowingAC = (id, isFollowed) => ({type: SUBMIT_FOLLOWING, isFollowed: isFollowed, id: id});
 export const setUsersAC = (users) => ({type: SET_USERS, users: users});
 
 export default usersReducer;

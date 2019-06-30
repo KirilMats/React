@@ -10,8 +10,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
     return {
-        submitFollowing: (index, isFollowed) => {
-            dispatch(submitFollowingAC(index, isFollowed));
+        submitFollowing: (id, isFollowed) => {
+            dispatch(submitFollowingAC(id, isFollowed));
         },
         setUsers: (users) => {
             dispatch(setUsersAC(users));
