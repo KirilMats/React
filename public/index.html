@@ -44,6 +44,7 @@
   crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.19.0/axios.js"></script>
   <script>
+    //  // ----------------GET JQuery
     // console.log(1);
     // function getSmth(){
     //   return $.ajax('https://social-network.samuraijs.com/api/1.0/users');
@@ -52,6 +53,7 @@
     //   const promise = getSmth();
     //   promise.then( response => console.log(`jQuery response: ${response.items[7].name}`));
     // })();
+    //  // GET Axios
     // const getSmthAxios = () => {
     //   return axios.get('https://social-network.samuraijs.com/api/1.0/users').then(response => response.data);
     // }
@@ -61,6 +63,129 @@
     // })();
     // setTimeout(() => {console.log(3)}, 400);
     // console.log(4);
+    //  // --------------POST JQuery with request Payload
+    // console.log(1);
+    // const sendTasksToServer = (title) => {
+    //   return $.ajax({
+    //     url: 'https://repetitora.net/api/JS/Tasks',
+    //     data: {json: JSON.stringify({
+    //       widgetId: '8654353',
+    //       title: title
+    //     })},
+    //     type: 'POST',
+    //     dataType: 'jsonp',
+    //     crossDomain: true,
+    //     beforeSend: setHeader
+    // });
+    // }
+    //  // --------------POST Axios with request Payload
+    // const sendTasksToServer = (title) => {
+    //   return axios.post('https://repetitora.net/api/JS/Tasks', {
+    //       widgetId: '8654353',
+    //       title: title
+    //     }).then( response => response.data);
+    // }
+    // (function sendTasks() {
+    //   let submitInput = document.createElement('input');
+    //   submitInput.type = 'submit';
+    //   submitInput.value = 'Send task';
+    //   document.body.appendChild(submitInput);
+
+    //   let getTextInput = document.createElement('input');
+    //   getTextInput.type = 'text';
+    //   getTextInput.placeholder = 'Please, type the task...';
+    //   getTextInput.id = 'task-text';
+    //   document.body.appendChild(getTextInput);
+
+    //   submitInput.addEventListener('click', sendTaskDataToDAL);
+    // })();
+    // function sendTaskDataToDAL() {
+    //   let title = document.getElementById('task-text').value;
+    //   sendTasksToServer(title);
+    // };
+    //  // --------------GET Axios with query params and click event to display result (promise -> response.data)
+    // const getTasksFromServer = () => {
+    //   return axios.get('https://repetitora.net/api/JS/Tasks?widgetId=8654353').then(response => response.data);
+    // }
+    // (function displayTasks(promise = getTasksFromServer()) {
+    //   let input = document.createElement('input');
+    //       input.type = 'Submit';
+    //       input.value = 'Get tasks';
+    //       input.addEventListener('click', getTasks);
+    //   document.body.appendChild(input);
+    //   function getTasks() {
+    //     promise.then( response => console.log(response));
+    //     let elements = document.querySelectorAll('.task');
+    //     if (elements.length !== 0){
+    //       for(i = 0; i < elements.length; i++){
+    //         elements[i].parentNode.removeChild(elements[i]);
+    //       }
+    //     }
+    //     promise.then( response => response.forEach( (el, index) => {
+    //       let div = document.createElement('div');
+    //           div.id = index;
+    //           div.className = 'task';
+    //           div.innerHTML = `id: ${el.id} , title: ${el.title}`;
+    //       document.body.appendChild(div);
+    //     }) );
+    //   }
+    // })();
+    //  // --------------DELETE Axios
+    // function deleteTaskFromServer(id) {
+    //   return axios.delete(`https://repetitora.net/api/JS/Tasks?widgetId=8654353&taskId=${id}`).then( response => response.data);
+    // }
+    // (function deleteTask() {
+    //   const input = document.createElement('input');
+    //       input.type = 'Submit';
+    //       input.value = 'Delete Task';
+    //       document.body.appendChild(input);
+
+    //   const getIdInput = document.createElement('input');
+    //       getIdInput.type = 'text';
+    //       getIdInput.placeholder = 'Please, type the task id...';
+    //       getIdInput.id = 'task-id';
+    //       document.body.appendChild(getIdInput);
+
+    //       input.addEventListener('click', deleteTaskToDAL);
+    // })();
+    // function deleteTaskToDAL(){
+    //   const id = document.getElementById('task-id').value;
+    //   let promise = deleteTaskFromServer();
+    //   deleteTaskFromServer(id);
+    // }
+    //  // --------------UPDATE Axios
+    // function changeTaskTextOnServer(id, title) {
+    //   return axios.put(`https://repetitora.net/api/JS/Tasks?widgetId=8654353&taskId=${id}`, {
+    //     taskId: id,
+    //     title: title
+    //   }).then( response => response.data);
+    // }
+    // (function changeTask() {
+    //   const input = document.createElement('input');
+    //       input.type = 'Submit';
+    //       input.value = 'Change Task';
+    //       document.body.appendChild(input);
+
+    //   const getIdInput = document.createElement('input');
+    //       getIdInput.type = 'text';
+    //       getIdInput.placeholder = 'Please, type the task id...';
+    //       getIdInput.id = 'task-id';
+    //       document.body.appendChild(getIdInput);
+
+    //   const getTextInput = document.createElement('input');
+    //       getTextInput.type = 'text';
+    //       getTextInput.placeholder = 'Please, type the task text...';
+    //       getTextInput.id = 'task-text';
+    //       document.body.appendChild(getTextInput);
+
+    //       input.addEventListener('click', changeTaskToDAL);
+    // })();
+
+    // function changeTaskToDAL() {
+    //   const id = document.getElementById('task-id').value,
+    //         title = document.getElementById('task-text').value;
+    //   changeTaskTextOnServer(id, title);
+    // }
   </script>
 </body>
 
