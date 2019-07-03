@@ -80,9 +80,13 @@
     // }
     //  // --------------POST Axios with request Payload
     // const sendTasksToServer = (title) => {
-    //   return axios.post('https://repetitora.net/api/JS/Tasks', {
-    //       widgetId: '8654353',
-    //       title: title
+    //   return axios({
+    //       method: 'post',
+    //       url: 'https://repetitora.net/api/JS/Tasks',
+    //       data: {
+    //         widgetId: '8654353',
+    //         title: title
+    //       }
     //     }).then( response => response.data);
     // }
     // (function sendTasks() {
