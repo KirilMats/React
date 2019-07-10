@@ -24,3 +24,32 @@
 .pages span.activePage {
     background-color: orange;
 }
+
+.preloader {
+    margin: 50px auto;
+    width: 100%;
+}
+
+.preloader span{
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 10px solid orange;
+    animation-duration: 1s;
+    animation-name: preloader;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+}
+
+@keyframes preloader {
+    from {
+        transform: rotate(0deg);
+        border-width: 0px;
+    }
+    to {
+        transform: rotate(180deg);
+        border-width: 25px;
+    }
+}

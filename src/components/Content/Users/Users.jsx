@@ -12,15 +12,17 @@ const Users = (props) => {
         pages.push(i);
     }
     return (
-        <div className={c.users}>
+        <div className={c.users_wrap}>
             <div className={c.pages}>
                 {
                     pages.map( p => <span onClick={(e) => {props.onPageChange(p)} } className={props.currentPage === p && c.activePage}>{p}</span>) 
                 }
             </div>
-            {
-                props.users.map( (u) => <User key={u.id} id={u.id} isFollowed={u.followed} name={u.name} status={u.status} img_src={u.photos.small != null ? u.photos.small : defaultUserPhoto} submitFollowing={props.submitFollowing} submitUnfollowing={props.submitUnfollowing} />)
-            }
+            <div className={c.users}>
+                {    
+                    props.users.map( (u) => <User key={u.id} id={u.id} isFollowed={u.followed} name={u.name} status={u.status} img_src={u.photos.small != null ? u.photos.small : defaultUserPhoto} submitFollowing={props.submitFollowing} submitUnfollowing={props.submitUnfollowing} />)      
+                }
+            </div>
         </div>
     )
 }

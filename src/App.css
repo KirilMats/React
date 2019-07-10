@@ -5,6 +5,12 @@ body {
 * {
   box-sizing: border-box;
 }
+.preloader{
+  width: 150px;
+  height: 150px;
+  margin-top: 30%;
+  margin-left: 35%;
+}
 .App {
   padding: 0 5%;
   padding-bottom: 20px;
@@ -17,6 +23,7 @@ body {
   grid-template-rows: 60px 1fr;
   grid-template-columns: 2fr 10fr;
   justify-content: center;
+  align-content: center;
 }
 @media (max-width: 1024px) {
   .App {

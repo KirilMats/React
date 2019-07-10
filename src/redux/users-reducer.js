@@ -1,4 +1,4 @@
-const [SUBMIT_FOLLOWING, SET_USERS, SET_CURRENT_PAGE, SET_USERS_TOTAL_COUNT] = ['SUBMIT-FOLLOWING', 'SET-USERS', 'SET-CURRENT-PAGE', 'SET-USERS-TOTAL-COUNT'];
+const [SUBMIT_FOLLOWING, SET_USERS, SET_CURRENT_PAGE, SET_USERS_TOTAL_COUNT, SHOW_PRELOADER] = ['SUBMIT-FOLLOWING', 'SET-USERS', 'SET-CURRENT-PAGE', 'SET-USERS-TOTAL-COUNT', 'SHOW-PRELOADER'];
 
 
 // usersData
@@ -6,7 +6,8 @@ const initialState =  {
     users: [],
     pageSize: 5,
     usersTotalCount: 0,
-    currentPage: 1
+    currentPage: 1,
+    isFetching: true
 }
 //
 
@@ -28,6 +29,8 @@ const usersReducer = (state = initialState, action) => {
                 return {...state, usersTotalCount: action.usersTotalCount};
         case SET_CURRENT_PAGE:
             return {...state, currentPage: action.currentPage};
+        case SHOW_PRELOADER:
+            return {...state, isFetching: action.isFetching};
         default: return state;
     }
 }
@@ -37,5 +40,6 @@ export const submitFollowingAC = (id, isFollowed) => ({type: SUBMIT_FOLLOWING, i
 export const setUsersAC = (users) => ({type: SET_USERS, users});
 export const setUsersTotalCountAC = (usersTotalCount) => ({type: SET_USERS_TOTAL_COUNT, usersTotalCount});
 export const setCurrentPageAC = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
+export const showPreloaderAC = (isFetching) => ({type: SHOW_PRELOADER, isFetching});
 
 export default usersReducer;
