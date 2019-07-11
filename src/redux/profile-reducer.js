@@ -44,9 +44,9 @@ const profileReducer = (state = initialState, action) => {
 }
 
 //ACTIONS 
-export const addPostCreator = () => ({type: ADD_POST}); //ES6 syntax,function body is removed and object ({}) is returned - круглые скобки нужны для обозначения того что это обьект, а не тело функции
-export const updateNewPostTextCreator = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
-export const addLikeCreator = (currentLikes, index) => ({type: ADD_LIKE, likes: currentLikes, index: index});
-export const addDislikeCreator = (currentDislikes, index) => ({type: ADD_DISLIKE, dislikes: currentDislikes, index: index});
+export const addNewPost = () => ({type: ADD_POST}); //ES6 syntax,function body is removed and object ({}) is returned - круглые скобки нужны для обозначения того что это обьект, а не тело функции
+export const changePostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
+export const addLike = (currentLikes, index) => ({type: ADD_LIKE, likes: currentLikes, index: index});
+export const addDislike = (currentDislikes, index) => ({type: ADD_DISLIKE, dislikes: currentDislikes, index: index});
 
 export default profileReducer;

@@ -1,10 +1,10 @@
 import React from 'react';
 import c from './NewPost.module.css';
 
-const NewPost = ({newPostText, postChange, addNewPost}) => {
+const NewPost = ({newPostText, changePostText, addNewPost}) => {
   let onPostChange = (e) => {
     let text = e.target.value;
-    postChange(text);
+    changePostText(text);
   }
 
   let onAddNewPost = (e) => {
