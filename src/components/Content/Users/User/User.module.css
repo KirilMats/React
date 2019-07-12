@@ -1,3 +1,47 @@
+.user_item {
+    padding: 10px;
+    border: 1px solid #f0f0f0;
+    margin-bottom: 10px;
+}
+
+.follow_btn {
+    background: none;
+    background-color: antiquewhite;
+    border: none;
+    outline: none;
+    border-radius: 10%;
+    width: 80px;
+    height: 30px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.follow_btn:hover {
+    background-color: beige;
+}
+
+.follow_btn:active {
+    background-color: bisque;
+}
+
 .user_item img{
     border-radius: 50%;
+}
+
+.user_name {
+    color: #000000;
+    margin-left: 10px;
+}
+
+.user_status {
+    color: #909090;
+    font-size: 12px;
+    margin-left: 10px;
+}
+
+.user_frame {
+    text-decoration: none;
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
 }

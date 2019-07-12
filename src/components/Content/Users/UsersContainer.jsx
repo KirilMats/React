@@ -26,7 +26,7 @@ class UsersContainer extends React.Component {
         });
     }
     render() {
-        return this.props.isFetching ? <Preloader /> : <Users isFetching={this.props.isFetching} submitUnfollowing={this.props.submitUnfollowing} submitFollowing={this.props.submitFollowing} currentPage={this.props.currentPage} usersTotalCount={this.props.usersTotalCount} pageSize={this.props.pageSize} onPageChange={this.onPageChange} users={this.props.users} />
+    return this.props.isFetching ? <Preloader /> : <Users isFetching={this.props.isFetching} submitUnfollowing={this.props.submitUnfollowing} submitFollowing={this.props.submitFollowing} currentPage={this.props.currentPage} usersTotalCount={this.props.usersTotalCount} pageSize={this.props.pageSize} onPageChange={this.onPageChange} users={this.props.users} />
     }
 }
 
