@@ -1,9 +1,9 @@
-const [ADD_POST, UPDATE_NEW_POST_TEXT, ADD_LIKE, ADD_DISLIKE] = ['ADD-POST', 'UPDATE-NEW-POST-TEXT', 'ADD-LIKE', 'ADD-DISLIKE'];
+const [ADD_POST, UPDATE_NEW_POST_TEXT, ADD_LIKE, ADD_DISLIKE, SET_USER_PROFILE] = ['ADD-POST', 'UPDATE-NEW-POST-TEXT', 'ADD-LIKE', 'ADD-DISLIKE', 'SET-USER-PROFILE'];
 
 
 // profileData
 const initialState =  { 
-    userData: { id: 1, name: 'Fox', dob: 'June 7', city: 'Kyiv', education: 'KNU\'14', website: 'https://www.lorem.ipsum', img_src: 'https://2.bp.blogspot.com/-BWPDUSeSm00/V3saizXgO3I/AAAAAAAAJxw/Yldh9jPAWnYFdFfPlzcU3MtElhEqW_Q6wCLcB/s1600/Fox%2Bin%2BBlack%2Band%2BWhite%2B633.jpg' }, 
+    userData: null, 
     postData: [
         { id: 1, likes: 121, dislikes: 14, text: 'And it\'s my second one'},
         { id: 2, likes: 233, dislikes: 32, text: 'It\'s my first post!'}
@@ -39,6 +39,8 @@ const profileReducer = (state = initialState, action) => {
             stateCopy.postData[action.index].dislikes = addedDislikes;
             return stateCopy;
         }
+        case SET_USER_PROFILE:
+            return {...state, userData: action.userData} 
         default: return state;
     }
 }
@@ -48,5 +50,6 @@ export const addNewPost = () => ({type: ADD_POST}); //ES6 syntax,function body i
 export const changePostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: text});
 export const addLike = (currentLikes, index) => ({type: ADD_LIKE, likes: currentLikes, index: index});
 export const addDislike = (currentDislikes, index) => ({type: ADD_DISLIKE, dislikes: currentDislikes, index: index});
+export const setUserProfile = (userData) => ({type: SET_USER_PROFILE, userData});
 
 export default profileReducer;

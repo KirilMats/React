@@ -3,11 +3,11 @@ import PostsContainer from './Posts/PostsContainer';
 import UserData from './UserData/UserData';
 import c from './Profile.module.css';
 
-const Profile = () => {
-  
+const Profile = (props) => {
+  console.log(props);
   return (
     <div className={c.profile}>
-      <UserData />
+      <UserData userData={props.userData} />
       <PostsContainer />
     </div>
   )
