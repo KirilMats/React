@@ -8,6 +8,4 @@ export const Provider = (props) => {
     </StoreContext.Provider>
 }
 
-console.log(null);
-
 export default StoreContext;

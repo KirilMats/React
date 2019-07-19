@@ -12,7 +12,7 @@ const UserData = (props) => {
     <div className={c.user_data}> 
       <img src={props.userData.photos.small} alt="" />
         <div className={c.user_info}>
-        <div className={c.user_name}>{props.userData.fullName ? 'Mr. ' + props.userData.fullName : 'Unkonwn'}</div>
+        <div className={c.user_name}>{props.userData.fullName ? props.userData.fullName : 'Unkonwn'}</div>
         {props.userData.aboutMe ? <div className={c.user_about}>{props.userData.aboutMe}</div> : null}
         <div className={c.user_info_details}>
           {props.userData.dob ? <div className={c.user_dob}>Date of birth: {props.userData.dob}</div> : null}

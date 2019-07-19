@@ -1,6 +1,10 @@
 .header {
   background-color: #282c34;
   grid-area: header;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
 }
 
@@ -17,8 +21,27 @@
   animation: App-logo-spin infinite 20s linear;
 }
 
+.login_wrap a{
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.login_name {
+  font-size: 16px;
+  color: #ffffff;
+  margin-right: 10px;
+}
+
 .header span:hover {
   animation-play-state: paused;
+}
+
+.login_link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
 }
 
 @keyframes App-logo-spin {
