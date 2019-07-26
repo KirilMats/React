@@ -7,7 +7,7 @@ const User = (props) => {
     props.isFollowed === true ? isFollowedDisplay = 'Unfollow' : isFollowedDisplay = 'Follow';
     return (
         <div className={c.user_item}>
-            <NavLink to={"profile/" + props.id} className={c.user_frame} activeClassName={c.active}>
+            <NavLink to={"/profile/" + props.id} className={c.user_frame} activeClassName={c.active}>
                 <img src={props.img_src} alt="" width="75" height="75" />
                 <span className={c.user_name}>{props.name}</span>
                 {/* {props.city}<br /> */}

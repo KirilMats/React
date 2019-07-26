@@ -12,10 +12,22 @@ const Header = (props) => {
       </span>
       {props.isFetching ? <Preloader /> :
         <div className={c.login_wrap}>
-          <NavLink to={props.isAuth ? '/page' : '/login'} className={c.login_link}>
-            <span className={c.login_name}>{props.isAuth ? 'Welcome, ' + props.login : 'Login'}</span>
-            {props.photo ? <img src={props.photo} alt="" /> : <img src={defaultUserPhoto} alt="" />}
-          </NavLink>
+          {
+            props.isAuth ? 
+            <NavLink to={`/profile/${props.userId}`} className={c.login_link}>
+            <span className={c.login_name}>{'Welcome, ' + props.login}</span>
+              {props.photo ? <img src={props.photo} alt="" /> : <img src={defaultUserPhoto} alt="" />}
+            </NavLink>
+            :
+            <div className={c.login_register}>
+              <NavLink to='/login' className={c.login_link}>
+                <span className={c.login_name}>Login</span>
+              </NavLink>
+              <NavLink to='/register' className={c.login_link}>
+                <span className={c.login_name}>Register</span>
+              </NavLink>
+            </div>
+          }
         </div>
       }
     </header>

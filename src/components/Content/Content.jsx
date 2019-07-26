@@ -13,7 +13,6 @@ const Content = () => {
   return (
     <main className={c.content}>
       <img className={c.main_bg} src="https://luminous-landscape.com/wp-content/uploads/2012/11/LL_Landscape_11-12-12.jpg" alt="" />
-      <Redirect from="/" to="/profile" />
       <Route render={ () => <ProfileContainer />} path='/profile/:userId?' />
       <Route render={ () => <UsersContainer />} path='/users' />
       <Route render={ () => <MessagesContainer />} path='/dialogs' />

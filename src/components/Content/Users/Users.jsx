@@ -20,7 +20,7 @@ const Users = (props) => {
             </div>
             <div className={c.users}>
                 {    
-                    props.users.map( (u) => <User key={u.id} id={u.id} isFollowed={u.followed} name={u.name} status={u.status} img_src={u.photos.small != null ? u.photos.small : defaultUserPhoto} submitFollowing={props.submitFollowing} submitUnfollowing={props.submitUnfollowing} />)      
+                    props.users.map( (u) => <User key={u.id} id={u.id} isFollowed={u.followed} name={u.name} status={u.status} img_src={u.photos.small != null ? u.photos.small : defaultUserPhoto} submitFollowing={props.submitFollowing} />)      
                 }
             </div>
         </div>
