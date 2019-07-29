@@ -36,7 +36,7 @@ const usersReducer = (state = initialState, action) => {
 }
 
 //ACTIONS 
-export const submitFollowing = (id, isFollowed) => ({type: SUBMIT_FOLLOWING, isFollowed: isFollowed, id});
+export const submitFollowing = (id, isFollowed) => ({type: SUBMIT_FOLLOWING, isFollowed, id});
 export const setUsers = (users) => ({type: SET_USERS, users});
 export const setUsersTotalCount = (usersTotalCount) => ({type: SET_USERS_TOTAL_COUNT, usersTotalCount});
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});

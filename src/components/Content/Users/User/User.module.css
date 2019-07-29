@@ -4,9 +4,8 @@
     margin-bottom: 10px;
 }
 
-.follow_btn {
+.unfollow_btn, .follow_btn {
     background: none;
-    background-color: antiquewhite;
     border: none;
     outline: none;
     border-radius: 10%;
@@ -14,14 +13,31 @@
     height: 30px;
     cursor: pointer;
     margin-top: 10px;
+    color: white;
+}
+
+.unfollow_btn{
+    background-color: rgb(228, 58, 58);
+}
+
+.unfollow_btn:hover{
+    background-color: rgb(248, 76, 76);
+}
+
+.unfollow_btn:active{
+    background-color: rgb(190, 47, 47);
+}
+
+.follow_btn{
+    background-color: rgb(54, 134, 54);
 }
 
 .follow_btn:hover {
-    background-color: beige;
+    background-color: rgb(65, 158, 65);
 }
 
 .follow_btn:active {
-    background-color: bisque;
+    background-color:rgb(43, 105, 43);
 }
 
 .user_item img{

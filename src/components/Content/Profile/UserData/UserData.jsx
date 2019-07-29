@@ -2,6 +2,7 @@ import React from 'react';
 import c from './UserData.module.css';
 import defaultUserPhoto from '../../../../assets/img/default-user.png';
 import Preloader from '../../Preloader/Preloader';
+import {NavLink} from 'react-router-dom';
 
 const UserData = (props) => {
   console.log(props.userData);
@@ -28,6 +29,7 @@ const UserData = (props) => {
           {props.userData.contacts.vk ? <div className={c.vk}><a href={props.userData.contacts.vk} target="_blank">VK</a></div> : null}
           {props.userData.contacts.youtube ? <div className={c.youtube}><a href={props.userData.contacts.youtube} target="_blank">Youtube</a></div> : null}
           {props.userData.contacts.github ? <div className={c.github}><a href={props.userData.contacts.github} target="_blank">Github</a></div> : null}
+          <NavLink to='/profile/14'>lalala</NavLink>
         </div>
       </div>
     </div>
