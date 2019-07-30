@@ -1,11 +1,11 @@
 import React from 'react';
 import c from './User.module.css';
 import {NavLink} from 'react-router-dom';
-import {changeFollowing} from './../../../../api/api';
+
 
 const User = (props) => {
     let isFollowedDisplay = '';
-    props.isFollowed === true ? isFollowedDisplay = 'Unfollow' : isFollowedDisplay = 'Follow';
+    props.isFollowed ? isFollowedDisplay = 'Unfollow' : isFollowedDisplay = 'Follow';
     return (
         <div className={c.user_item}>
             <NavLink to={"/profile/" + props.id} className={c.user_frame} activeClassName={c.active}>
@@ -15,17 +15,7 @@ const User = (props) => {
                 {/* {props.country}<br /> */}
                 <span className={c.user_status} >{props.status}</span>
             </NavLink>
-            <button className={props.isFollowed ? c.unfollow_btn : c.follow_btn} type='submit' onClick={() => {
-                props.isFollowed ?
-                changeFollowing(props.isFollowed, props.id).then(data => 
-                        data.resultCode == 0 ? props.submitFollowing(props.id, true) : null
-                    )   
-                :
-                changeFollowing(props.isFollowed, props.id).then(data => 
-                        data.resultCode == 0 ? props.submitFollowing(props.id, false) : null
-                    )
-                }
-            }>{isFollowedDisplay}</button><br />
+            <button className={props.isFollowed ? c.unfollow_btn : c.follow_btn} disabled={props.isFollowingFetching.some(id => id === props.id)} type='submit' onClick={() => {props.onFollowSubmit(props.isFollowed, props.id)} }>{isFollowedDisplay}</button><br />
         </div>
     )
 }

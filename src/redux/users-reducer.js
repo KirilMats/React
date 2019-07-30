@@ -1,4 +1,4 @@
-const [SUBMIT_FOLLOWING, SET_USERS, SET_CURRENT_PAGE, SET_USERS_TOTAL_COUNT, SHOW_PRELOADER] = ['SUBMIT-FOLLOWING', 'SET-USERS', 'SET-CURRENT-PAGE', 'SET-USERS-TOTAL-COUNT', 'SHOW-PRELOADER'];
+const [SUBMIT_FOLLOWING, SET_USERS, SET_CURRENT_PAGE, SET_USERS_TOTAL_COUNT, TOGGLE_IS_FETCHING, TOGGLE_IS_FOLLOWING_FETCHING] = ['SUBMIT-FOLLOWING', 'SET-USERS', 'SET-CURRENT-PAGE', 'SET-USERS-TOTAL-COUNT', 'TOGGLE-IS-FETCHING', 'TOGGLE-IS-FOLLOWING-FETCHING'];
 
 
 // usersData
@@ -7,7 +7,8 @@ const initialState =  {
     pageSize: 5,
     usersTotalCount: 0,
     currentPage: 1,
-    isFetching: true
+    isFetching: true,
+    isFollowingFetching: []
 }
 //
 
@@ -29,8 +30,10 @@ const usersReducer = (state = initialState, action) => {
                 return {...state, usersTotalCount: action.usersTotalCount};
         case SET_CURRENT_PAGE:
             return {...state, currentPage: action.currentPage};
-        case SHOW_PRELOADER:
+        case TOGGLE_IS_FETCHING:
             return {...state, isFetching: action.isFetching};
+        case TOGGLE_IS_FOLLOWING_FETCHING:
+            return {...state, isFollowingFetching: action.isFollowingFetching ? [...state.isFollowingFetching, action.userId] : state.isFollowingFetching.filter(id => id != action.userId) };
         default: return state;
     }
 }
@@ -40,6 +43,7 @@ export const submitFollowing = (id, isFollowed) => ({type: SUBMIT_FOLLOWING, isF
 export const setUsers = (users) => ({type: SET_USERS, users});
 export const setUsersTotalCount = (usersTotalCount) => ({type: SET_USERS_TOTAL_COUNT, usersTotalCount});
 export const setCurrentPage = (currentPage) => ({type: SET_CURRENT_PAGE, currentPage});
-export const showPreloader = (isFetching) => ({type: SHOW_PRELOADER, isFetching});
+export const showPreloader = (isFetching) => ({type: TOGGLE_IS_FETCHING, isFetching});
+export const showFollowingPreloader = (isFollowingFetching, userId) => ({type: TOGGLE_IS_FOLLOWING_FETCHING, isFollowingFetching, userId});
 
 export default usersReducer;
