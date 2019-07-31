@@ -4,9 +4,9 @@ import ProfileContainer from './Profile/ProfileContainer';
 import MessagesContainer from './Messages/MessagesContainer';
 import Feed from './Feed/Feed';
 import UsersContainer from './Users/UsersContainer';
-import Music from './Music/Music';
 import Settings from './Settings/Settings';
 import { Route, Redirect } from 'react-router-dom';
+import MusicContainer from './Music/MusicContainer';
 
 
 const Content = () => {
@@ -17,7 +17,7 @@ const Content = () => {
       <Route render={ () => <UsersContainer />} path='/users' />
       <Route render={ () => <MessagesContainer />} path='/dialogs' />
       <Route render={ () => <Feed />} path='/feed' />
-      <Route render={ () => <Music />} path='/music' />
+      <Route render={ () => <MusicContainer />} path='/music' />
       <Route render={ () => <Settings />} path='/settings' />
     </main>
   )

@@ -16,6 +16,10 @@
     color: white;
 }
 
+.unfollow_btn:disabled, .follow_btn:disabled {
+    opacity: 0.6;
+}
+
 .unfollow_btn{
     background-color: rgb(228, 58, 58);
 }
