@@ -5,6 +5,14 @@ import Messages from './Messages';
 import { updateNewMessageBody, sendMessage } from '../../../redux/dialogs-reducer';
 import { connect } from 'react-redux';
 
+
+class MessagesContainer extends React.Component {
+  render() {
+    console.log(this);
+    return <Messages newMessageBody={this.props.newMessageBody} dialogs={this.props.dialogs} messages={this.props.messages} sendMessage={this.props.sendMessage} updateNewMessageBody={this.props.updateNewMessageBody} />
+  }
+}
+
 const mapStateToProps = (state) => {
   return {
     newMessageBody: state.messagesData.newMessageBody,
@@ -24,9 +32,7 @@ const mapStateToProps = (state) => {
 //   }
 // }
 
-const MessagesContainer = connect(mapStateToProps, {sendMessage, updateNewMessageBody})(Messages);
-
-export default MessagesContainer;
+export default connect(mapStateToProps, {sendMessage, updateNewMessageBody})(MessagesContainer);
 
 // const MessagesContainer = () => {
 //   return (
