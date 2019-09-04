@@ -1,7 +1,6 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import {submitFollowing, setUsers, setUsersTotalCount, setCurrentPage, showPreloader, showFollowingPreloader} from './../../../redux/users-reducer';
-import {usersAPI} from './../../../api/api';
+import {getUsers, changeFollowing, setCurrentPage} from './../../../redux/users-reducer';
 import Users from './Users';
 import Preloader from '../../Content/Preloader/Preloader';
 
@@ -10,35 +9,21 @@ class UsersContainer extends React.Component {
     //     super(props); // вызывается конструктор родительский (от React.Component)
     // }
     componentDidMount() {
-        usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-            this.props.showPreloader(false);
-            this.props.setUsers(data.items);
-            this.props.setUsersTotalCount(data.totalCount);
-        });
+        // this.props.showPreloader(true);
+        // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
+        //     this.props.showPreloader(false);
+        //     this.props.setUsers(data.items);
+        //     this.props.setUsersTotalCount(data.totalCount);
+        // });
+        this.props.getUsers(this.props.currentPage, this.props.pageSize);
     }
     onPageChange = (page) => {
-        this.props.showPreloader(true);
         this.props.setCurrentPage(page);
-        usersAPI.getUsers(page, this.props.pageSize).then(data => {
-            console.log(data);
-            this.props.showPreloader(false);
-            this.props.setUsers(data.items);
-        });
+        this.props.getUsers(page, this.props.pageSize);
     }
     onFollowSubmit = (isFollowed, id) => {
-        this.props.showFollowingPreloader(true, id);
-        isFollowed ?
-        usersAPI.changeFollowing(isFollowed, id).then(data => {
-            this.props.showFollowingPreloader(false, id);
-            return data.resultCode == 0 && this.props.submitFollowing(id, true);
-        })   
-        :
-        usersAPI.changeFollowing(isFollowed, id).then(data => {
-            this.props.showFollowingPreloader(false, id);
-            return data.resultCode == 0 && this.props.submitFollowing(id, false);
-        })
+        this.props.changeFollowing(isFollowed, id);
     }
-
     render() {
         console.log(this.props.isFollowingFetching);
         return this.props.isFetching ? <Preloader /> : <Users onFollowSubmit={this.onFollowSubmit} isFollowingFetching={this.props.isFollowingFetching} isFetching={this.props.isFetching} submitFollowing={this.props.submitFollowing} currentPage={this.props.currentPage} usersTotalCount={this.props.usersTotalCount} pageSize={this.props.pageSize} onPageChange={this.onPageChange} users={this.props.users} />
@@ -57,4 +42,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {submitFollowing, setUsers, setUsersTotalCount, setCurrentPage, showPreloader, showFollowingPreloader})(UsersContainer);
+export default connect(mapStateToProps, {getUsers, changeFollowing, setCurrentPage})(UsersContainer);
