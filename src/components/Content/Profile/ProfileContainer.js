@@ -9,7 +9,7 @@ import {showPreloader} from '../../../redux/users-reducer';
 class ProfileContainer extends React.Component {
     componentDidMount() {
         // this.props.showPreloader(true);
-        let userId = this.props.match.params.userId ? this.props.match.params.userId : this.props.userId;
+        let userId = this.props.match.params.userId ? this.props.match.params.userId : 1301;
         // profileAPI.getUserData(userId).then(data => {
         //     this.props.showPreloader(false);
         //     return this.props.setUserData(data)
