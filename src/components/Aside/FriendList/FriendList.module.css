@@ -6,6 +6,10 @@
     align-items: center;
 }
 
+.friendList a{
+    text-decoration: none;
+}
+
 .item {
     margin-bottom: 10px;
     width: 100%;
@@ -32,7 +36,7 @@
 
 .friends{
     display: flex;
-    flex-flow: row nowrap;
+    flex-flow: row wrap;
     justify-content: space-between;
 }
 

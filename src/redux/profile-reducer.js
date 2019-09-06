@@ -1,3 +1,5 @@
+import {profileAPI} from '../api/api';
+
 const [ADD_POST, UPDATE_NEW_POST_TEXT, ADD_LIKE, ADD_DISLIKE, SET_USER_DATA] = ['ADD-POST', 'UPDATE-NEW-POST-TEXT', 'ADD-LIKE', 'ADD-DISLIKE', 'SET-USER-DATA'];
 
 
@@ -51,5 +53,15 @@ export const changePostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: t
 export const addLike = (currentLikes, index) => ({type: ADD_LIKE, likes: currentLikes, index: index});
 export const addDislike = (currentDislikes, index) => ({type: ADD_DISLIKE, dislikes: currentDislikes, index: index});
 export const setUserData = (userData) => ({type: SET_USER_DATA, userData});
+
+
+//THUNKS 
+export const getUserData = (userId, showPreloader) => (dispatch) => {
+    dispatch(showPreloader(true));
+    profileAPI.getUserData(userId).then(data => {
+        dispatch(setUserData(data));
+        dispatch(showPreloader(false));
+    });
+}
 
 export default profileReducer;

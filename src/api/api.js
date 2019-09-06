@@ -8,18 +8,27 @@ const instance = axios.create({
     }
 })
 
+//--FRIENDS
+export const friendsAPI = {
+    getFriends: () => {
+        return instance.get(`users?count=100&followed=true`)
+               .then(response => response.data);
+    }
+}
+//!--FRIENDS
+
 //--USERS
 export const usersAPI = {
     getUsers: (currentPage, pageSize) => {
-        return instance.get(`https://social-network.samuraijs.com/api/1.0/users?page=${currentPage}&count=${pageSize}`)
+        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
                .then(response => response.data);
     },
     changeFollowing:  (isFollowed, id) => {
         return isFollowed ?
-            instance.delete(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
+            instance.delete(`follow/${id}`)
             .then(response => response.data) 
         :
-            instance.post(`https://social-network.samuraijs.com/api/1.0/follow/${id}`)
+            instance.post(`follow/${id}`)
             .then(response => response.data)
     }
 }
@@ -29,7 +38,7 @@ export const usersAPI = {
 //--PROFILE
 export const profileAPI = {
     getUserData: (userId) => {
-        return instance.get(`https://social-network.samuraijs.com/api/1.0/profile/${userId}`)
+        return instance.get(`profile/${userId}`)
         .then(response => response.data);
     }
 }
@@ -39,7 +48,7 @@ export const profileAPI = {
 //--AUTH
 export const authAPI = {
     getUserAuthData: () => {
-        return instance.get(`https://social-network.samuraijs.com/api/1.0/auth/me`, {withCredentials: true})
+        return instance.get(`auth/me`, {withCredentials: true})
         .then(response => response.data);
     }
 }

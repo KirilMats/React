@@ -2,10 +2,10 @@ import React from 'react';
 import Friend from './Friend/Friend';
 import c from './FriendList.module.css';
 import {NavLink} from 'react-router-dom';
+import defaultUserPhoto from '../../../assets/img/default-user.png';
 
-const FriendList = ({friendData}) => {
-
-    const friends = friendData.map( (f, index) => <Friend key={index} img_src={f.img_src} name={f.name} />);
+const FriendList = (props) => {
+    const friends = props.friends.map( (f, index) => f.followed && <Friend key={index} img_src={f.photos.small != null ? f.photos.small : defaultUserPhoto} name={f.name} isFollowed={f.followed} id={f.id} />);
 
     return (
         <div className={c.friendList}>
