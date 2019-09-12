@@ -7,6 +7,7 @@ import UsersContainer from './Users/UsersContainer';
 import Settings from './Settings/Settings';
 import { Route, Redirect } from 'react-router-dom';
 import MusicContainer from './Music/MusicContainer';
+import Login from './Login/Login';
 
 
 const Content = () => {
@@ -19,6 +20,7 @@ const Content = () => {
       <Route render={ () => <Feed />} path='/feed' />
       <Route render={ () => <MusicContainer />} path='/music' />
       <Route render={ () => <Settings />} path='/settings' />
+      <Route render={ () => <Login />} path="/login" />
     </main>
   )
 }

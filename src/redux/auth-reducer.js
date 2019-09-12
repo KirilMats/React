@@ -1,3 +1,5 @@
+import {authAPI} from './../api/api';
+
 const [SET_USER_AUTH_DATA, SHOW_PRELOADER] = ['SET-USER-AUTH-DATA', 'SHOW-PRELOADER'];
 
 const initialState = {
@@ -23,5 +25,16 @@ const authReducer = (state = initialState, action) => {
 
 export const setUserAuthData = (userId, login, email, photos, fullName, contacts) => ({type: SET_USER_AUTH_DATA, authData: {userId, login, email, photos, fullName, contacts}});
 export const showPreloader = (isFetching) => ({type: SHOW_PRELOADER, isFetching});
+
+
+export const getUserAuthData = () => (dispatch) => {
+    authAPI.getUserAuthData().then(data => {
+        dispatch(showPreloader(false));
+        if(data.resultCode === 0){
+            let {id, login, email} = data.data;
+            dispatch(setUserAuthData(id, login, email));
+        }
+    });
+}
 
 export default authReducer;

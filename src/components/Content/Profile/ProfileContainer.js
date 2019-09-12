@@ -5,6 +5,7 @@ import {getUserData} from '../../../redux/profile-reducer';
 import {withRouter} from 'react-router-dom';
 import Preloader from '../../Content/Preloader/Preloader';
 import {showPreloader} from '../../../redux/users-reducer';
+import {Redirect} from 'react-router-dom';
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -19,14 +20,15 @@ class ProfileContainer extends React.Component {
     }
 
     render() {
-        return this.props.isFetching ? <Preloader /> : <Profile {...this.props} /> //expand all the props from an object to separate attributes {...this.props}
+        return this.props.isFetching ? <Preloader /> : this.props.isAuth ? <Profile {...this.props} /> : <Redirect to="/login" /> //expand all the props from an object to separate attributes {...this.props}
     }
 }
 
 const mapStateToProps = (state) => ({
     userData: state.profileData.userData,
     userId: state.authData.userId,
-    isFetching: state.usersData.isFetching
+    isFetching: state.usersData.isFetching,
+    auth: state.authData.isAuth
 });
 
 let WithUrlDataContainer = withRouter(ProfileContainer);

@@ -1,18 +1,11 @@
 import React from 'react';
-import {setUserAuthData, showPreloader} from '../../redux/auth-reducer';
+import {getUserAuthData} from '../../redux/auth-reducer';
 import Header from './Header';
-import {authAPI} from './../../api/api';
 import { connect } from 'react-redux';
 
 class HeaderContainer extends React.Component {
     componentDidMount() {
-        authAPI.getUserAuthData().then(data => {
-            this.props.showPreloader(false);
-            if(data.resultCode === 0){
-                let {id, login, email} = data.data;
-                this.props.setUserAuthData(id, login, email);
-            }
-        });
+        this.props.getUserAuthData();
     }
     render() {
         return <Header {...this.props} />
@@ -27,4 +20,4 @@ const mapStateToProps = (state) => ({
     isFetching: state.authData.isFetching
 })
 
-export default connect(mapStateToProps, {setUserAuthData, showPreloader})(HeaderContainer);
+export default connect(mapStateToProps, {getUserAuthData})(HeaderContainer);
