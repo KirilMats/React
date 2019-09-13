@@ -15,7 +15,6 @@ class ProfileContainer extends React.Component {
         //     this.props.showPreloader(false);
         //     return this.props.setUserData(data)
         // });
-        console.log(this.props.userId);
         this.props.getUserData(userId, this.props.showPreloader);
     }
 
@@ -28,7 +27,7 @@ const mapStateToProps = (state) => ({
     userData: state.profileData.userData,
     userId: state.authData.userId,
     isFetching: state.usersData.isFetching,
-    auth: state.authData.isAuth
+    isAuth: state.authData.isAuth
 });
 
 let WithUrlDataContainer = withRouter(ProfileContainer);

@@ -4,12 +4,12 @@ import Message from './Message/Message';
 import Messages from './Messages';
 import { updateNewMessageBody, sendMessage } from '../../../redux/dialogs-reducer';
 import { connect } from 'react-redux';
+import { Redirect } from 'react-router-dom';
 
 
 class MessagesContainer extends React.Component {
   render() {
-    console.log(this);
-    return <Messages newMessageBody={this.props.newMessageBody} dialogs={this.props.dialogs} messages={this.props.messages} sendMessage={this.props.sendMessage} updateNewMessageBody={this.props.updateNewMessageBody} />
+    return this.props.isAuth ? <Messages newMessageBody={this.props.newMessageBody} dialogs={this.props.dialogs} messages={this.props.messages} sendMessage={this.props.sendMessage} updateNewMessageBody={this.props.updateNewMessageBody} /> : <Redirect to="/login" />
   }
 }
 
@@ -17,7 +17,8 @@ const mapStateToProps = (state) => {
   return {
     newMessageBody: state.messagesData.newMessageBody,
     dialogs: state.messagesData.dialogData.map( (d) => <Dialog key={d.id} id={d.id} name ={d.name} img_src={d.img_src} />),      
-    messages:  state.messagesData.messageData.map( (m) => <Message key={m.id} img_src={m.img_src} message={m.message} />)
+    messages: state.messagesData.messageData.map( (m) => <Message key={m.id} img_src={m.img_src} message={m.message} />),
+    isAuth: state.authData.isAuth
   }
 }
 
