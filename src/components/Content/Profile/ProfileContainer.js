@@ -6,6 +6,8 @@ import {withRouter} from 'react-router-dom';
 import Preloader from '../../Content/Preloader/Preloader';
 import {showPreloader} from '../../../redux/users-reducer';
 import {Redirect} from 'react-router-dom';
+import withAuthRedirect from '../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class ProfileContainer extends React.Component {
     componentDidMount() {
@@ -23,13 +25,16 @@ class ProfileContainer extends React.Component {
     }
 }
 
+// let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+
 const mapStateToProps = (state) => ({
     userData: state.profileData.userData,
     userId: state.authData.userId,
-    isFetching: state.usersData.isFetching,
-    isAuth: state.authData.isAuth
+    isFetching: state.usersData.isFetching
 });
 
-let WithUrlDataContainer = withRouter(ProfileContainer);
+// let WithUrlDataContainer = withRouter(AuthRedirectComponent);
 
-export default connect(mapStateToProps, {getUserData, showPreloader})(WithUrlDataContainer);
+// export default connect(mapStateToProps, {getUserData, showPreloader})(WithUrlDataContainer);
+
+export default compose (connect(mapStateToProps, {getUserData, showPreloader}), withRouter, withAuthRedirect)(ProfileContainer);

@@ -3,6 +3,8 @@ import {connect} from 'react-redux';
 import {getUsers, changeFollowing, setCurrentPage} from './../../../redux/users-reducer';
 import Users from './Users';
 import Preloader from '../../Content/Preloader/Preloader';
+import withAuthRedirect from '../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class UsersContainer extends React.Component {
     // constructor(props) { // если в компоненте конструктор только лишь вызывает родительский конструктор, то можно его вообще не определять
@@ -30,6 +32,8 @@ class UsersContainer extends React.Component {
     }
 }
 
+// let AuthRedirectComponent = withAuthRedirect(UsersContainer);
+
 const mapStateToProps = (state) => {
     return {
         users: state.usersData.users,
@@ -42,4 +46,5 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {getUsers, changeFollowing, setCurrentPage})(UsersContainer);
+// export default connect(mapStateToProps, {getUsers, changeFollowing, setCurrentPage})(AuthRedirectComponent);
+export default compose(connect(mapStateToProps, {getUsers, changeFollowing, setCurrentPage}), withAuthRedirect)(UsersContainer);

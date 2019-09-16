@@ -5,6 +5,8 @@ import Messages from './Messages';
 import { updateNewMessageBody, sendMessage } from '../../../redux/dialogs-reducer';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
+import withAuthRedirect from '../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 
 class MessagesContainer extends React.Component {
@@ -22,6 +24,9 @@ const mapStateToProps = (state) => {
   }
 }
 
+// export default withAuthRedirect(connect(mapStateToProps, {sendMessage, updateNewMessageBody})(MessagesContainer));
+export default compose(connect(mapStateToProps, {sendMessage, updateNewMessageBody}), withAuthRedirect)(MessagesContainer);
+
 // const mapDispatchToProps = (dispatch) => {
 //   return {
 //     sendMessage: () => {
@@ -32,8 +37,6 @@ const mapStateToProps = (state) => {
 //     }
 //   }
 // }
-
-export default connect(mapStateToProps, {sendMessage, updateNewMessageBody})(MessagesContainer);
 
 // const MessagesContainer = () => {
 //   return (
