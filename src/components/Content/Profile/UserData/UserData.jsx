@@ -19,8 +19,9 @@ const UserData = (props) => {
           {props.userData.dob ? <div className={c.user_dob}>Date of birth: {props.userData.dob}</div> : null}
           {props.userData.city ? <div className={c.city}>City: {props.userData.city}</div> : null}
           {props.userData.education ? <div className={c.education}>Education: {props.userData.education}</div> : null}
-          <div className={c.userJobStatus}>{props.userData.lookingForAJob ? 'I\'m looking for job: ' + props.userData.lookingForAJobDescription : 'Currently I have a job'}</div>
-          <br />
+          <div className={c.userJobStatus}>Employed: {props.userData.lookingForAJob ? 'No ' + props.userData.lookingForAJobDescription : 'Yes'}</div>
+          <div>{props.userData.lookingForAJobDescription}</div>
+          <br/>
           {props.userData.contacts.mainLink ? <div className={c.main_link}><a href={props.userData.contacts.mainLink} target="_blank">Must visit</a></div> : null}
           {props.userData.contacts.website ? <div className={c.website}><a href={props.userData.contacts.website} target="_blank">Website</a></div> : null}
           {props.userData.contacts.instagram ? <div className={c.instagram}><a href={props.userData.contacts.instagram} target="_blank">Instagram</a></div> : null}

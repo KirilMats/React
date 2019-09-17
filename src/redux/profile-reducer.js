@@ -1,6 +1,6 @@
 import {profileAPI} from '../api/api';
 
-const [ADD_POST, UPDATE_NEW_POST_TEXT, ADD_LIKE, ADD_DISLIKE, SET_USER_DATA] = ['ADD-POST', 'UPDATE-NEW-POST-TEXT', 'ADD-LIKE', 'ADD-DISLIKE', 'SET-USER-DATA'];
+const [ADD_POST, UPDATE_NEW_POST_TEXT, ADD_LIKE, ADD_DISLIKE, SET_USER_DATA, SET_SOME_DATA] = ['ADD-POST', 'UPDATE-NEW-POST-TEXT', 'ADD-LIKE', 'ADD-DISLIKE', 'SET-USER-DATA', 'SET_SOME_DATA'];
 
 
 // profileData
@@ -42,7 +42,7 @@ const profileReducer = (state = initialState, action) => {
             return stateCopy;
         }
         case SET_USER_DATA:
-            return {...state, userData: action.userData} 
+            return {...state, userData: action.userData}
         default: return state;
     }
 }
@@ -53,6 +53,7 @@ export const changePostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: t
 export const addLike = (currentLikes, index) => ({type: ADD_LIKE, likes: currentLikes, index: index});
 export const addDislike = (currentDislikes, index) => ({type: ADD_DISLIKE, dislikes: currentDislikes, index: index});
 export const setUserData = (userData) => ({type: SET_USER_DATA, userData});
+export const setSomeData = (someData) => ({type: SET_SOME_DATA, someData});
 
 
 //THUNKS 
@@ -61,7 +62,12 @@ export const getUserData = (userId, showPreloader) => (dispatch) => {
     profileAPI.getUserData(userId).then(data => {
         dispatch(setUserData(data));
         dispatch(showPreloader(false));
-    });
+    })
+}
+export const setSomeUserData = (someData) => (dispatch) => {
+    profileAPI.setSomeData(someData).then(data => {
+        console.log(data);
+    })
 }
 
 export default profileReducer;

@@ -42,7 +42,6 @@ const mapStateToProps = (state) => {
         currentPage: state.usersData.currentPage,
         isFetching: state.usersData.isFetching,
         isFollowingFetching: state.usersData.isFollowingFetching
-        
     }
 }
 

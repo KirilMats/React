@@ -1,11 +1,10 @@
 import React from 'react';
 import Profile from './Profile';
 import { connect } from 'react-redux';
-import {getUserData} from '../../../redux/profile-reducer';
+import {getUserData, setSomeUserData} from '../../../redux/profile-reducer';
 import {withRouter} from 'react-router-dom';
 import Preloader from '../../Content/Preloader/Preloader';
 import {showPreloader} from '../../../redux/users-reducer';
-import {Redirect} from 'react-router-dom';
 import withAuthRedirect from '../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
@@ -18,10 +17,11 @@ class ProfileContainer extends React.Component {
         //     return this.props.setUserData(data)
         // });
         this.props.getUserData(userId, this.props.showPreloader);
+        this.props.setSomeUserData('../../../assets/img/kmats.jpg');
     }
 
     render() {
-        return this.props.isFetching ? <Preloader /> : this.props.isAuth ? <Profile {...this.props} /> : <Redirect to="/login" /> //expand all the props from an object to separate attributes {...this.props}
+        return this.props.isFetching ? <Preloader /> : <Profile {...this.props} /> //expand all the props from an object to separate attributes {...this.props}
     }
 }
 
@@ -37,4 +37,4 @@ const mapStateToProps = (state) => ({
 
 // export default connect(mapStateToProps, {getUserData, showPreloader})(WithUrlDataContainer);
 
-export default compose (connect(mapStateToProps, {getUserData, showPreloader}), withRouter, withAuthRedirect)(ProfileContainer);
+export default compose (connect(mapStateToProps, {getUserData, setSomeUserData, showPreloader}), withRouter)(ProfileContainer);

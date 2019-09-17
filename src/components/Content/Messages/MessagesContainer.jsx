@@ -11,7 +11,7 @@ import { compose } from 'redux';
 
 class MessagesContainer extends React.Component {
   render() {
-    return this.props.isAuth ? <Messages newMessageBody={this.props.newMessageBody} dialogs={this.props.dialogs} messages={this.props.messages} sendMessage={this.props.sendMessage} updateNewMessageBody={this.props.updateNewMessageBody} /> : <Redirect to="/login" />
+    return <Messages newMessageBody={this.props.newMessageBody} dialogs={this.props.dialogs} messages={this.props.messages} sendMessage={this.props.sendMessage} updateNewMessageBody={this.props.updateNewMessageBody} />
   }
 }
 
