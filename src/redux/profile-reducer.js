@@ -10,7 +10,8 @@ const initialState =  {
         { id: 1, likes: 121, dislikes: 14, text: 'And it\'s my second one'},
         { id: 2, likes: 233, dislikes: 32, text: 'It\'s my first post!'}
     ],
-    newPostText: ''
+    newPostText: '',
+    status: null
 }
 //
 
@@ -43,6 +44,8 @@ const profileReducer = (state = initialState, action) => {
         }
         case SET_USER_DATA:
             return {...state, userData: action.userData}
+        case SET_SOME_DATA: 
+            return {...state, status: action.status}
         default: return state;
     }
 }
@@ -53,7 +56,7 @@ export const changePostText = (text) => ({type: UPDATE_NEW_POST_TEXT, newText: t
 export const addLike = (currentLikes, index) => ({type: ADD_LIKE, likes: currentLikes, index: index});
 export const addDislike = (currentDislikes, index) => ({type: ADD_DISLIKE, dislikes: currentDislikes, index: index});
 export const setUserData = (userData) => ({type: SET_USER_DATA, userData});
-export const setSomeData = (someData) => ({type: SET_SOME_DATA, someData});
+export const setSomeData = (status) => ({type: SET_SOME_DATA, status});
 
 
 //THUNKS 
@@ -66,7 +69,7 @@ export const getUserData = (userId, showPreloader) => (dispatch) => {
 }
 export const setSomeUserData = (someData) => (dispatch) => {
     profileAPI.setSomeData(someData).then(data => {
-        console.log(data);
+        dispatch(setSomeData(data))
     })
 }
 

@@ -30,7 +30,8 @@ class ProfileContainer extends React.Component {
 const mapStateToProps = (state) => ({
     userData: state.profileData.userData,
     userId: state.authData.userId,
-    isFetching: state.usersData.isFetching
+    isFetching: state.usersData.isFetching,
+    status: state.profileData.status
 });
 
 // let WithUrlDataContainer = withRouter(AuthRedirectComponent);
