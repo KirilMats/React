@@ -7,7 +7,7 @@ const Profile = (props) => {
   console.log(props);
   return (
     <div className={c.profile}>
-      <UserData userData={props.userData} status={props.status} />
+      <UserData userData={props.userData} />
       <PostsContainer />
     </div>
   )

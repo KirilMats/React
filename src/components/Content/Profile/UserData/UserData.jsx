@@ -3,6 +3,7 @@ import c from './UserData.module.css';
 import defaultUserPhoto from '../../../../assets/img/default-user.png';
 import Preloader from '../../Preloader/Preloader';
 import {NavLink} from 'react-router-dom';
+import UserStatus from './UserStatus/UserStatus';
 
 const UserData = (props) => {
   console.log(props);
@@ -14,8 +15,7 @@ const UserData = (props) => {
         {props.userData.photos.small ? <img src={props.userData.photos.small} alt="" /> : <img src={defaultUserPhoto} alt="" />}
         <div className={c.user_info}>
         <div className={c.user_name}>{props.userData.fullName ? props.userData.fullName : 'Unkonwn'}</div>
-        <div>{props.status.messages[0]}</div>
-        {props.userData.aboutMe ? <div className={c.user_about}>{props.userData.aboutMe}</div> : null}
+        <UserStatus status={props.userData.aboutMe} />
         <div className={c.user_info_details}>
           {props.userData.dob ? <div className={c.user_dob}>Date of birth: {props.userData.dob}</div> : null}
           {props.userData.city ? <div className={c.city}>City: {props.userData.city}</div> : null}

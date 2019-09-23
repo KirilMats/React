@@ -40,12 +40,6 @@ export const profileAPI = {
     getUserData: (userId) => {
         return instance.get(`profile/${userId}`)
         .then(response => response.data);
-    },
-    setSomeData: (someData) => {
-        // const formData = new FormData();
-        // formData.append('image', someData);
-        return instance.put(`profile/photo`, {photos: {small: someData, large: someData} }, {headers: { 'content-type': 'multipart/form-data'}})
-        .then(response => response.data);
     }
 }
 //!--PROFILE
